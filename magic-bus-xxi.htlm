@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGIC BUS · SIGLO XXI Y ½</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CABECERA -->
+<div class="header-sticky">
+  <div class="topband">
+    <table style="width:100%; border-collapse:collapse;">
+      <tr>
+        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--white); white-space:nowrap;">
+          BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
+        </td>
+        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
+          <a href="https://beltzapost-design.github.io/Manifiesto-Beltza/beltza-manifiesto-final.html" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
+          ·
+          <a href="https://www.beltzarecords.com/beltzascene" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a>
+          ·
+          <a href="https://www.beltzarecords.com" style="color:var(--amber);text-decoration:none;">BELTZA RECORDS</a>
+        </td>
+        <td style="width:2rem; text-align:right;">
+          <button class="hamburger" onclick="toggleSidebar()" aria-label="Menú">☰</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="brand-slash">
+    <div class="b-beltza">MAGIC BUS</div>
+    <div class="b-exp">SIGLO XXI Y ½</div>
+    <!-- AQUÍ VA EL PUÑO (HEADER) -->
+    <div style="margin-left:auto; display:flex; align-items:center;">
+      <!-- Espacio reservado para el puño -->
+    </div>
+  </div>
+</div>
+
+<!-- SECCIÓN BLACKBARELLA (solo imagen de Flickr) -->
+<section style="padding: 2rem; background: var(--black);">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <img src="https://live.staticflickr.com/31/65997148_9fce388c65.jpg" alt="blackbarella" style="width:100%; display:block;">
+  </div>
+</section>
+
+<!-- SECCIÓN FREE HUEY -->
+<section style="padding: 4rem 2rem; background: var(--black);">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); color: var(--red); letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 2rem;">FREE HUEY</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div style="background: rgba(176,26,26,0.1); padding: 2rem; border-left: 4px solid var(--red);">
+        <p style="font-family: 'Courier Prime', monospace; font-size: 1.2rem; color: var(--white); margin-bottom: 1rem;">"Huey P. Newton, cofundador de las Panteras Negras, pasó años en prisión. Su liberación fue una victoria del pueblo contra el sistema."</p>
+        <p style="font-family: 'Courier Prime', monospace; color: var(--amber);">— Black Power —</p>
+      </div>
+      <div style="background: rgba(176,26,26,0.1); padding: 2rem; border-left: 4px solid var(--red);">
+        <p style="font-family: 'Courier Prime', monospace; font-size: 1.2rem; color: var(--white); margin-bottom: 1rem;">"La lucha no termina con una liberación. La lucha es constante. Free Huey fue un grito, pero la guerra sigue."</p>
+        <p style="font-family: 'Courier Prime', monospace; color: var(--amber);">— Asata Shakur —</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN ELECTRO CUMBIA -->
+<section style="padding: 4rem 2rem; background: var(--black); border-top: 1px solid var(--red);">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 6rem); color: var(--amber); letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 2rem;">ELECTRO CUMBIA</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div>
+        <p style="font-family: 'Courier Prime', monospace; font-size: 1.1rem; color: var(--white); margin-bottom: 1rem;">La cumbia no murió, se enchufó. Desde los barrios de Medellín hasta las pistas de Berlín, el ritmo que mueve masas ahora tiene sintetizadores.</p>
+        <p style="font-family: 'Courier Prime', monospace; color: var(--muted);">Rebelión bailable.</p>
+      </div>
+      <div>
+        <p style="font-family: 'Courier Prime', monospace; font-size: 1.1rem; color: var(--white); margin-bottom: 1rem;">La Cumbia rebajada en México, la chicha en Perú, la cumbia digital en Argentina. Un continente bailando al mismo ritmo, pero con diferentes voltajes.</p>
+        <p style="font-family: 'Courier Prime', monospace; color: var(--muted);">De la verbena al after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: var(--black); border-top: 1px solid var(--red); padding: 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <!-- AQUÍ VA EL PUÑO (FOOTER) -->
+    </div>
+    <div style="font-family:'Courier Prime', monospace; color: var(--muted);">
+      BELTZA RECORDS · DONEZTEBE
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
