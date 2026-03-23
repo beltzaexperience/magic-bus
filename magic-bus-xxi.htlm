@@ -5,454 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAGIC BUS · SIGLO XXI Y ½</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --black: #0a0a0a;
-    --white: #f2ede6;
-    --red: #b01a1a;
-    --amber: #c8922a;
-    --muted: #666;
-    --sidebar: 330px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.25rem;
-    line-height: 1.9;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* CABECERA */
-  .header-sticky { position: sticky; top: 0; z-index: 100; }
-  .topband {
-    background: var(--black);
-    border-bottom: 1px solid #1e1e1e;
-    padding: 0.45rem clamp(1rem,3vw,2rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .topband-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(0.7rem,1.2vw,0.85rem);
-    letter-spacing: 0.28em;
-    color: var(--white);
-    white-space: nowrap;
-  }
-  .topband-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(0.68rem,1.1vw,0.82rem);
-    letter-spacing: 0.22em;
-  }
-  .topband-nav a { color: var(--amber); text-decoration: none; transition: color 0.15s; }
-  .topband-nav a:hover { color: var(--white); }
-  .topband-nav .sep { color: #333; }
-  .hamburger {
-    background: none; border: none; color: var(--white);
-    font-size: 1.2rem; cursor: pointer; padding: 0.2rem 0.4rem;
-  }
-
-  .brand-slash {
-    background: var(--red);
-    padding: 0.5rem clamp(1rem,3vw,2rem);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .b-beltza {
-    font-family: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
-    font-size: clamp(2.2rem,5vw,4rem);
-    letter-spacing: 0.03em;
-    color: var(--black);
-    line-height: 1;
-  }
-  .b-exp {
-    font-family: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
-    font-size: clamp(2.2rem,5vw,4rem);
-    letter-spacing: 0.03em;
-    background: var(--black);
-    color: var(--red);
-    padding: 0.05em 0.3em;
-    line-height: 1;
-  }
-
-  .block-white {
-    background-color: #f0e8d8;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
-      linear-gradient(135deg, rgba(180,160,120,0.06) 0%, transparent 50%, rgba(180,160,120,0.04) 100%);
-    color: var(--black);
-    padding: clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
-  }
-  .block-white .block-tag { color: var(--red); }
-  .block-white .block-tag::after { background: rgba(176,26,26,0.2); }
-  .block-white .headline-xl { color: var(--black); }
-  .block-white .byline { color: #555; }
-  .block-white .caption { color: #777; border-color: rgba(0,0,0,0.1); }
-  .block-white .body-text { color: #333; }
-  .block-white .olivetti { color: var(--black); border-color: rgba(0,0,0,0.15); background: rgba(0,0,0,0.03); }
-  .block-white .caption { font-weight: 700; color: var(--amber); border-color: rgba(0,0,0,0.1); }
-  .block-white .pullquote { color: var(--red); background: rgba(176,26,26,0.04); }
-  .block-white .pullquote cite { font-weight: 700; color: var(--amber); }
-  .block-white .comments-label { color: var(--red); }
-  .block-white .comment { border-color: rgba(0,0,0,0.08); }
-  .block-white .comment-author { color: var(--black); }
-  .block-white .comment-year { color: #888; }
-  .block-white .comment-text { color: #333; }
-  .block-white .comment-form textarea { background: rgba(0,0,0,0.05); color: var(--black); border-color: rgba(0,0,0,0.15); }
-  .block-white .comment-form input { background: rgba(0,0,0,0.05); color: var(--black); border-color: rgba(0,0,0,0.15); }
-  .block-white .comment-form button { background: var(--red); color: var(--white); }
-
-  /* IGNICION */
-  .digit-ignicion {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
-    letter-spacing: 0.05em;
-    color: var(--white);
-    transition: color 0.15s, text-shadow 0.15s;
-  }
-  .digit-ignicion.activo { color: var(--red); text-shadow: 0 0 18px rgba(176,26,26,0.7); }
-  .digit-ignicion.pasado { color: #555; }
-  .sep-ignicion { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.8rem); color: #555; }
-  #ignicion-label { transition: color 0.3s, text-shadow 0.3s; }
-  #ignicion-label.encendido {
-    color: var(--red);
-    text-shadow: 0 0 30px rgba(176,26,26,0.9), 0 0 60px rgba(176,26,26,0.4);
-    animation: pulso-ignicion 1.2s ease-in-out infinite;
-  }
-  @keyframes pulso-ignicion {
-    0%, 100% { text-shadow: 0 0 20px rgba(176,26,26,0.8), 0 0 50px rgba(176,26,26,0.3); }
-    50%       { text-shadow: 0 0 40px rgba(176,26,26,1),   0 0 80px rgba(176,26,26,0.6); }
-  }
-
-  /* MARQUEE */
-  .marquee-bar {
-    background: var(--red);
-    padding: 0.4rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-  }
-  .marquee-inner {
-    display: inline-block;
-    animation: marquee 35s linear infinite;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    color: var(--white);
-    will-change: transform;
-  }
-  @keyframes marquee {
-    from { transform: translateX(100vw); }
-    to   { transform: translateX(-100%); }
-  }
-
-  /* LAYOUT */
-  .wrapper { display: flex; min-height: calc(100vh - 120px); }
-
-  /* SIDEBAR */
-  .sidebar {
-    width: var(--sidebar);
-    min-width: var(--sidebar);
-    background: var(--black);
-    padding: 2rem 1rem;
-    position: sticky;
-    top: 90px;
-    height: calc(100vh - 90px);
-    overflow-y: auto;
-  }
-  .sidebar-inner {
-    background-color: #f0e8d8;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
-      linear-gradient(135deg, rgba(180,160,120,0.06) 0%, transparent 50%, rgba(180,160,120,0.04) 100%);
-    padding: 1.5rem 1.2rem;
-    color: var(--black);
-  }
-  .sidebar-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.35em;
-    color: var(--red);
-    margin-bottom: 1.2rem;
-  }
-  .sidebar-inner nav a {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.05rem;
-    letter-spacing: 0.2em;
-    color: #2a2a2a;
-    text-decoration: none;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    transition: color 0.15s;
-  }
-  .sidebar-inner nav a:hover { color: var(--red); }
-  .sidebar-inner nav a::before { content: '· '; color: var(--red); }
-
-  /* BUZÓN */
-  .buzon { margin-top: 2.5rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
-  .buzon-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.3em;
-    color: var(--red);
-    margin-bottom: 0.8rem;
-  }
-  .buzon input, .buzon textarea {
-    width: 100%;
-    background: rgba(0,0,0,0.05);
-    border: 1px solid #c8b89a;
-    color: #8a7e6e;
-    padding: 0.5rem 0.7rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    outline: none;
-  }
-  .buzon textarea { resize: vertical; min-height: 60px; }
-  .buzon button, .comment-form button {
-    background: var(--red);
-    color: var(--white);
-    border: none;
-    padding: 0.4rem 1.2rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-  .buzon button { width: 100%; }
-  .buzon button:hover, .comment-form button:hover { background: #8a1010; }
-
-  .sidebar-meta {
-    margin-top: 2rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 2;
-    letter-spacing: 0.05em;
-  }
-  .sidebar-meta a { color: #444; text-decoration: none; }
-  .sidebar-meta a:hover { color: var(--amber); }
-
-  /* FEED */
-  .feed { flex: 1; padding: 2rem 2.5rem; min-width: 0; }
-
-  /* BLOQUES */
-  .block { margin-bottom: 0; }
-  .block + .block, .block + .marquee-bar, .marquee-bar + .block { margin-top: 2rem; }
-  .block-tag {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.35em;
-    color: var(--red);
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .block-tag::after { content: ''; flex: 1; height: 1px; background: #222; }
-
-  .headline-xl {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-  a { text-decoration: underline; }
-  a:hover { color: var(--red) !important; }
-  a[style*="color:var(--red)"]:hover,
-  a[style*="color: var(--red)"]:hover { color: var(--white) !important; }
-  .headline-xl.amber { color: var(--amber); }
-
-  .caption {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #1a1a1a;
-    margin-bottom: 0.5rem;
-  }
-  .body-text {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.15rem;
-    line-height: 2.05;
-    color: #8a7e6e;
-    margin-bottom: 1.2rem;
-  }
-  .body-text em { color: var(--white); font-style: italic; }
-
-  .pullquote {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--white);
-    border-left: 3px solid var(--red);
-    padding: 1rem 1.5rem;
-    margin: 2rem 0;
-    background: rgba(176,26,26,0.05);
-  }
-  .pullquote cite {
-    display: block;
-    font-family: 'Courier Prime', monospace;
-    font-size: 1rem;
-    font-style: normal;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-    margin-top: 0.8rem;
-    text-transform: uppercase;
-  }
-
-  .olivetti {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.92rem;
-    line-height: 2.1;
-    color: #999;
-    letter-spacing: 0.02em;
-    padding: 1.5rem;
-    border: 1px solid #1e1e1e;
-    background: rgba(0,0,0,0.05);
-    margin: 1.5rem 0;
-    position: relative;
-  }
-  .olivetti::before {
-    content: attr(data-label);
-    position: absolute;
-    top: -0.6rem; left: 1rem;
-    background: var(--black);
-    padding: 0 0.5rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.3em;
-    color: var(--red);
-    text-transform: uppercase;
-  }
-
-  .byline {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1rem;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-  }
-
-  .sep-line { border: none; border-top: 1px solid #1a1a1a; margin: 2rem 0; }
-  .sep-red  { border: none; border-top: 2px solid var(--red); margin: 2rem 0; }
-
-  /* FOTOS */
-  .img-full  { width: 100%; display: block; filter: contrast(1.1); }
-  .float-right { float: right; width: 45%; margin: 0 0 1.5rem 2rem; }
-  .float-right img { width: 100%; display: block; filter: contrast(1.1); }
-  .clearfix::after { content: ''; display: table; clear: both; }
-  .photo-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 1rem 0; }
-  .photo-grid-2 img { width: 100%; display: block; filter: contrast(1.1); }
-
-  /* COMENTARIOS */
-  .comments { margin-top: 2rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
-  .comments-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.3em;
-    color: var(--red);
-    margin-bottom: 1rem;
-  }
-  .comment { margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid #111; }
-  .comment-author {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-  }
-  .comment-year { font-size: 0.72rem; color: #444; margin-left: 0.5rem; }
-  .comment-text {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
-    color: #777;
-    line-height: 1.8;
-    margin-top: 0.3rem;
-    font-style: italic;
-  }
-  .comment-form { margin-top: 1.2rem; }
-  .comment-form input[type="text"],
-  .comment-form input[type="email"] {
-    width: 100%;
-    display: block;
-    background: rgba(0,0,0,0.05);
-    border: 1px solid #c8b89a;
-    color: #8a7e6e;
-    padding: 0.8rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-    outline: none;
-    box-sizing: border-box;
-  }
-  .comment-form textarea {
-    width: 100%;
-    background: rgba(0,0,0,0.05);
-    border: 1px solid #c8b89a;
-    color: #8a7e6e;
-    padding: 0.8rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-    outline: none;
-    box-sizing: border-box;
-  }
-  .comment-form input[type="text"]::placeholder,
-  .comment-form input[type="email"]::placeholder,
-  .comment-form textarea::placeholder { color: #555; letter-spacing: 0.1em; }
-  .comment-form textarea { resize: vertical; min-height: 80px; }
-  .form-ok {
-    display: none;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.3em;
-    color: var(--amber);
-    margin-top: 0.8rem;
-    padding: 0.6rem 0.8rem;
-    border-left: 3px solid var(--amber);
-  }
-
-  /* FOOTER */
-  .footer {
-    background: rgba(0,0,0,0.05);
-    border-top: 2px solid var(--red);
-    padding: 1.5rem 2.5rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem;
-    color: #333;
-    letter-spacing: 0.15em;
-    text-align: center;
-    line-height: 2.2;
-    margin-top: 4rem;
-  }
-  .footer a { color: var(--amber); text-decoration: none; }
-
-  /* RESPONSIVE */
-  @media (max-width: 700px) {
-    .sidebar { display: none; }
-    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; }
-    .feed { padding: 1.5rem 1rem; }
-    .float-right { float: none; width: 100%; margin: 0 0 1.5rem; }
-    .brand-slash { flex-wrap: wrap; gap: 0.5rem; }
-    #ignicion-wrap > div { flex-direction: column !important; }
-    #ignicion-wrap img { width: 100% !important; max-width: 100% !important; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -465,7 +18,7 @@
           BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
         </td>
         <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
-          <a href="https://beltzapost-design.github.io/Manifiesto-Beltza/" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
+          <a href="https://beltzapost-design.github.io/Manifiesto-Beltza/beltza-manifiesto-final.html" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
           ·
           <a href="https://www.beltzarecords.com/beltzascene" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a>
           ·
@@ -481,7 +34,7 @@
     <div class="b-beltza">MAGIC BUS</div>
     <div class="b-exp">SIGLO XXI Y ½</div>
     <div style="margin-left:auto; display:flex; align-items:center;">
-      <img src="https://beltzapost-design.github.io/magic-bus/BeltzaLogo.png" alt="Puño Beltza" style="height:clamp(3rem,7vw,5.5rem); width:auto;">
+<img src="BeltzaLogo.png" alt="Puño Beltza" style="height:clamp(3rem,7vw,5.5rem); width:auto;">
     </div>
   </div>
 </div>
@@ -489,416 +42,226 @@
 <!-- IGNICIÓN -->
 <div id="ignicion-wrap" style="background:var(--black); border-bottom:2px solid var(--red); padding:3rem clamp(1rem,4vw,3rem) 2.5rem;">
   <div style="display:flex; align-items:flex-start; gap:2rem; width:100%;">
-    <div style="flex-shrink:0; width:clamp(320px,42vw,520px);">
-      <img src="https://beltzapost-design.github.io/magic-bus/blackbarella.jpg" alt="blackbarella" style="width:100%; display:block; filter:contrast(1.1);">
-      <p style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:var(--muted); letter-spacing:0.15em; margin-top:0.6rem; text-align:center;">
-        · Blackbarella · Ilustración: David Navascues ·
-      </p>
+    <!-- IMAGEN IZQUIERDA -->
+    <div style="flex-shrink:0; width:clamp(280px,38vw,480px);">
+ <img src="blackbarella.jpg" alt="blackbarella" style="width:100%; display:block;">
     </div>
-    <div style="flex:1; padding-top:0.5rem;">
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5.6vw,4.8rem); letter-spacing:0.05em; color:var(--white); margin-bottom:1.5rem; white-space:nowrap;">
+
+    <!-- TEXTO DERECHA -->
+    <div style="flex:1; min-width:0; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(1rem,5.5vw,6rem); letter-spacing:0.04em; color:var(--white); line-height:1; margin-bottom:1.5rem; width:100%; display:block;">
         ACCIÓN DIGITAL DIRECTA!!!
       </div>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        <a href="https://www.beltzarecords.com/beltzaexperience" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Experience</a>
-        es la evolución lógica de
-        <a href="https://www.beltzarecords.com" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Records</a>
-        (desde 1990).
-      </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        El Magic Bus recorriendo el Siglo XXI y ½ es el viaje vital de <strong style="color:var(--white);">Beltza Press</strong>.
-      </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        Ven a <a href="https://www.beltzarecords.com/parroquia13" style="color:var(--white); font-weight:700; text-decoration:none;">Parroquia 13</a>
-        — entrarás con la curiosidad de Ziggy Stardust y saldrás llorando de la emoción.
-      </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem; color:var(--white);">
-        ¿ESTÁS PREPARADO PARA EL VIAJE?
-      </p>
-      <div style="margin-top:2rem; display:flex; align-items:center; flex-wrap:wrap; gap:0.5rem; justify-content:center;">
-        <span class="digit-ignicion" data-n="9">9</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="8">8</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="7">7</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="6">6</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="5">5</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="4">4</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="3">3</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="2">2</span><span class="sep-ignicion">·</span>
-        <span class="digit-ignicion" data-n="1">1</span><span class="sep-ignicion">·</span>
-        <span id="ignicion-label" class="digit-ignicion" style="letter-spacing:0.15em;">IGNICIÓN</span>
+      
+      <div style="font-family:'Courier Prime',monospace; font-size:clamp(0.8rem,1.5vw,0.95rem); letter-spacing:0.2em; color:var(--amber); text-transform:uppercase; line-height:2; text-align:justify;">
+        <a href="https://www.beltzarecords.com/beltzaexperience" target="_blank" style="color:var(--white); text-decoration:none;"><strong>Beltza Experience</strong></a>
+        <span style="color:var(--amber);"> es la evolución lógica de </span>
+        <a href="https://www.beltzarecords.com" target="_blank" style="color:var(--white); text-decoration:none;"><strong>Beltza Records</strong></a>
+        <span style="color:var(--amber);"> (desde 1990).</span>
       </div>
+      <div style="border-top:1px solid #2a2a2a; margin:1rem 0;"></div>
+      <div style="font-family:'Courier Prime',monospace; font-size:clamp(0.8rem,1.5vw,0.95rem); letter-spacing:0.2em; color:var(--amber); text-transform:uppercase; line-height:2; text-align:justify;">
+        El Magic Bus recorriendo el Siglo XXI y ½<br>es el viaje vital de <strong style="color:var(--white);">BELTZA PRESS</strong>.
+      </div>
+      <div style="border-top:1px solid #2a2a2a; margin:1rem 0;"></div>
+      <div style="font-family:'Courier Prime',monospace; font-size:clamp(0.8rem,1.5vw,0.95rem); letter-spacing:0.2em; color:var(--amber); text-transform:uppercase; line-height:2; text-align:justify;">
+        Ven a <a href="https://www.beltzarecords.com/parroquia13" target="_blank" style="color:var(--white); text-decoration:none;"><strong>Parroquia 13</strong></a> — entrarás con la curiosidad de Ziggy Stardust y saldrás llorando de la emoción.
+      </div>
+      
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(1rem,2vw,1.2rem); letter-spacing:0.4em; color:var(--white); margin-top:1.5rem; margin-bottom:1.5rem; width:100%; text-align:justify;">
+        ¿ESTÁS PREPARADO PARA EL VIAJE?
+      </div>
+      <div style="display:flex; align-items:center; gap:0.3rem; flex-wrap:wrap; justify-content:space-between; width:100%;">
+    <span class="digit-ignicion" id="d9">9</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d8">8</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d7">7</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d6">6</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d5">5</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d4">4</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d3">3</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d2">2</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="d1">1</span>
+    <span class="sep-ignicion">·</span>
+    <span class="digit-ignicion" id="ignicion-label" style="font-size:clamp(1.8rem,4vw,3.5rem); letter-spacing:0.08em;">IGNICIÓN</span>
+      </div>
+      <div style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.2em; color:var(--amber); margin-top:0.8rem;">· Blackbarella · Ilustración: David Navascues ·</div>
     </div>
-    <div style="flex-shrink:0; width:clamp(340px,45vw,550px);">
-      <img src="https://live.staticflickr.com/65535/55161943711_ff7e53c5f1_o.jpg" alt="It's Time — DCPC" style="width:100%; display:block; filter:contrast(1.1);">
-      <p style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:var(--muted); letter-spacing:0.15em; margin-top:0.6rem; text-align:center;">
-        · It's Time · DCPC · Cartel: David Navascués ·
-      </p>
-    </div>
-  </div>
-</div>
 
-<!-- MARQUEE PORTADAS -->
-<div style="background:var(--black); border-bottom:2px solid var(--red); padding:0.6rem 0; overflow:hidden; white-space:nowrap;">
-  <div style="display:inline-block; animation:marquee 40s linear infinite; will-change:transform;">
-    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <!-- repetición para loop continuo -->
-    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+
   </div>
 </div>
 
 <!-- WRAPPER -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <div class="wrapper">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-inner">
-    <div class="sidebar-label">Secciones</div>
-    <nav>
-      <a href="#musica">Música</a>
-      <a href="#politica">Política</a>
-      <a href="#cine">Cine</a>
-      <a href="#fotografia">Fotografía</a>
-      <a href="#literatura">Literatura</a>
-      <a href="#cosmos">Cosmos</a>
-      <a href="#gastronomia">Gastronomía</a>
-      <a href="#beltza-style">Beltza Style</a>
-      <a href="#euskal-herria">Euskal Herria</a>
-      <a href="#comics">Cómics</a>
-      <a href="#archivo">Archivo</a>
-    </nav>
+<aside class="sidebar" style="background:var(--black);">
+  <div style="border:1.5px solid #1a1a1a; padding:1.2rem; background-color:#f0e8d8; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E&quot;);">
+  <div class="sidebar-label">Secciones</div>
+  <nav>
+    <a href="#musica">Música</a>
+    <a href="#politica">Política</a>
+    <a href="#cine">Cine</a>
+    <a href="#fotografia">Fotografía</a>
+    <a href="#literatura">Literatura</a>
+    <a href="#cosmos">Cosmos</a>
+    <a href="#gastronomia">Gastronomía</a>
+    <a href="#beltza-style">Beltza Style</a>
+    <a href="#euskal-herria">Euskal Herria</a>
+    <a href="#comics">Cómics</a>
+    <a href="#archivo">Archivo</a>
+  </nav>
+  <div class="buzon">
+    <div class="buzon-label">✉ Escríbenos</div>
+    <form action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="email" name="email" placeholder="tu@email.com" required>
+      <textarea name="message" placeholder="Tu mensaje..." rows="3"></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </div>
+  <div class="sidebar-meta">
+    <a href="https://www.beltzarecords.com/beltzablog/493-magic-bus-1-1989" target="_blank" style="color:var(--red); text-decoration:none;">Magic Bus nº1</a><br>Donostia, 1989<br>——<br><a href="https://www.beltzarecords.com/beltzablog/497-magic-bus-2-1989" target="_blank" style="color:var(--red); text-decoration:none;">Magic Bus nº2</a><br>Donostia, 1989<br>——<br><a href="https://www.beltzarecords.com/beltzablog/506-magic-bus-3-1990" target="_blank" style="color:var(--red); text-decoration:none;">Magic Bus nº3</a><br>Donostia, 1990<br>——<br><a href="https://www.beltzarecords.com/beltzascene" target="_blank" style="color:var(--red); text-decoration:none;">Beltza Scene →</a><br>Donostia, 2004<br>——<br>
+    Magic Bus<br>Siglo XXI y ½<br>2026 →<br>——<br>
+    Luis Beltza<br>editor
+  </div>
+  </div>
+</aside>
 
-    <!-- BUZÓN -->
-    <div class="buzon">
-      <div class="buzon-label">✉ Escríbenos</div>
-      <form action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleBuzon(event, this)">
-        <input type="text" name="nick" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
-        <textarea name="message" placeholder="Tu mensaje..." required></textarea>
-        <button type="submit">Enviar</button>
-        <div class="form-ok" id="buzon-ok">¡Eskerrik asko! · Mensaje enviado.</div>
-      </form>
+<!-- FEED -->
+<main class="feed">
+
+  <!-- POLÍTICA · OAKLAND 1968 -->
+  <section class="block block-white" id="politica">
+    <div class="block-tag">Política · Oakland 1968</div>
+    <h2 class="headline-xl">FREE HUEY.</h2>
+    <div class="caption">Oakland, California · 1968 · Free Huey Rally · Black Panther Party · Huey Must Be Set Free</div>
+    <div class="body-text">
+      Oakland, 1968. El Black Panther Party organiza el Free Huey Rally para pedir la liberación de Huey P. Newton. Cuero negro, boinas negras, radiotransmisores, niños sobre los hombros de sus padres, mujeres sirviendo comida, músicos de blues en los márgenes del río.<br><br>
+      La música como acto político. El East Bay Dragons MC aparcando sus choppers en el perímetro. Bobby Seale al micrófono. La multitud respondiendo. Un cartel que dice: <em>Huey Must Be Set Free.</em><br><br>
+      <strong>Toda gran revolución cultural empieza donde nadie mira.</strong> El Soul, el Funk, el Blues no son géneros — son actos de resistencia. Beltza Records lo supo desde el primer día.
     </div>
+    <form class="comment-form" style="margin-top:1.5rem;" action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="hidden" name="post" value="Free Huey">
+      <input type="email" name="email" placeholder="mail obligatorio" required>
+      <textarea name="message" placeholder="Post comment..." required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </section>
 
-    <!-- META -->
-    <div class="sidebar-meta">
-      <a href="https://www.beltzarecords.com/beltzablog/493-magic-bus-1-1989">Magic Bus nº1</a><br>
-      Donostia, 1989<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzablog/497-magic-bus-2-1989">Magic Bus nº2</a><br>
-      Donostia, 1989<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzablog/506-magic-bus-3-1990">Magic Bus nº3</a><br>
-      Donostia, 1990<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzascene">Beltza Scene →</a><br>
-      Donostia, 2004<br>——<br>
-      Magic Bus<br>
-      Siglo XXI y ½<br>
-      2026 →<br>——<br>
-      Luis Beltza<br>
-      editor
-    </div>
-    </div><!-- /sidebar-inner -->
-  </aside>
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·
+  </div>
+</div>
 
-  <!-- FEED -->
-  <main class="feed">
-
-    <!-- POST: KAREN Y LOS REMEDIOS -->
-    <article class="block block-white" id="karen">
-      <div class="block-tag">Música · Cumbia Amazónica</div>
-      <h2 class="headline-xl">KAREN Y LOS REMEDIOS.</h2>
-      <div class="byline">Luis Beltza</div>
-      <img src="https://live.staticflickr.com/65535/55163950260_8e81a3a7bc_o.jpg" alt="Karen y los Remedios · Las Muchachas" class="img-full" style="margin:1rem 0;">
-      <div class="caption"><a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:var(--amber); text-decoration:none;">Karen y los Remedios</a></div>
-      <div class="body-text">
-        Estos son los nuevos ritmos de AMÉRICA y <a href="https://www.beltzarecords.com" target="_blank" style="color:inherit; font-weight:700;">Beltza Records</a> no está al margen. Pasen y vean, perreen la nueva CUMBIA AMAZÓNICA.
+  <!-- MÚSICA · ELECTRO CUMBIA -->
+  <section class="block block-white" id="musica">
+    <div class="block-tag">Música · Nuevo Punk</div>
+    <h2 class="headline-xl amber">ELECTRO<br>CUMBIA.</h2>
+    <div class="byline">Luis Beltza</div>
+    <div class="clearfix">
+      <div class="float-right">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Lido_Pimienta_%282019%29.jpg/800px-Lido_Pimienta_%282019%29.jpg" alt="Lido Pimienta">
+        <div class="caption">· Lido Pimienta ·</div>
       </div>
-      <div class="pullquote">
-        Me inclino hacia rosas / cuando llegó bailo / veo a las muchachas / le doy un besito. Entre más oscura cae la noche / bailo despacio / me ilumina la melancolía.
-        <cite>— <a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:inherit; text-decoration:none;">Karen y los Remedios</a> · Las Muchachas</cite>
-      </div>
-      <div style="margin:1.5rem 0;">
-        <a href="https://www.youtube.com/watch?v=oVoDGZ20wVQ" target="_blank" style="display:block; position:relative;">
-          <img src="https://img.youtube.com/vi/oVoDGZ20wVQ/maxresdefault.jpg" alt="Karen y los Remedios · Las Muchachas" style="width:100%; display:block; filter:contrast(1.1);">
-          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:80px; height:80px; background:rgba(176,26,26,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center;">
-            <div style="width:0; height:0; border-top:20px solid transparent; border-bottom:20px solid transparent; border-left:35px solid white; margin-left:8px;"></div>
-          </div>
-        </a>
-        <p class="caption" style="text-align:center; margin-top:0.4rem;">· <a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:inherit; text-decoration:none;">Karen y los Remedios</a> · <a href="https://www.youtube.com/watch?v=oVoDGZ20wVQ" target="_blank" style="color:inherit; text-decoration:none;">YouTube</a> ·</p>
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: KAREN Y LOS REMEDIOS">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
-
-    <!-- MARQUEE -->
-    <div class="marquee-bar">
-      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
-    </div>
-
-    <!-- POST: SATÁN -->
-    <article class="block block-white" id="satan">
-      <div class="block-tag">Política · Música · Afghan Whigs</div>
-      <h2 class="headline-xl">SATÁN LEVANTANDO CON SU MALDAD LA CIVILIZACIÓN PIRAMIDAL.</h2>
-      <div class="byline">Luis Beltza</div>
-      <img src="https://live.staticflickr.com/65535/55162325334_5759f147ba_o.jpg" alt="Afghan Whigs · In Spades" class="img-full" style="margin:1rem 0;">
-      <div class="caption"><a href="https://theafghanwhigs.bandcamp.com/album/in-spades" target="_blank" style="color:inherit; text-decoration:none;">Afghan Whigs</a> · In Spades · Sub Pop · 2017</div>
-      <div class="body-text">
-        Algunos han vendido su alma al diablo para habitar la cúspide del poder vendiendo ideologías en las estanterías de los súper ventas. Best Sellers de la discrepancia y la contracultura haciendo de 1984 una realidad tangible. Tertulianos del gran tablero humano adoptando cada uno su papel para hacernos olvidar el respeto que nos merecemos a nosotros mismos. No tengas sueños de justicia o libertad, una bala te estará esperando. La discrepancia real se paga con penas de muerte.
-      </div>
-      <div class="pullquote">
-        Criminal, criminal. Ver el cuchillo en el agua. Esta electricidad era todo lo que quería, ahora me está matando. Algunos lo llaman químico, yo lo llamo agridulce.
-        <cite>— <a href="https://theafghanwhigs.bandcamp.com/album/in-spades" target="_blank" style="color:inherit; text-decoration:none;">Afghan Whigs</a> · Demon in Profile · In Spades · 2017</cite>
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: SATÁN CIVILIZACIÓN PIRAMIDAL">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
-
-    <!-- MARQUEE -->
-    <div class="marquee-bar">
-      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
-    </div>
-
-    <!-- POST: ETIOPÍA / ANTIFASCISMO -->
-    <article class="block block-white" id="politica">
-      <div class="block-tag">Política · Antifascismo</div>
-      <h2 class="headline-xl"><a href="https://ctxt.es/es/20200701/Politica/32908/Molly-Crabapple-The-Baffler-Etiopia-colonialismo-Antifascismo-Mussolini-Chicago-manifestaciones-EEUU.htm?fbclid=IwY2xjawQrillleHRuA2FlbQIxMABicmlkETFLcUhhNGt6dnJ0RGtkem1uc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvBaIgHtDabyKkTGYOrOrfW8cz_6M5Msu8n6qIECe3GrcTaz1wK3Q-TMi2v-_aem_ELDa3TIDb5nw9X9itxxdhg" target="_blank" style="color:inherit; text-decoration:none;">La ignorada vanguardia antifascista negra de EE.UU.</a></h2>
-      <div class="byline">Molly Crabapple · The Baffler · 24/07/2020</div>
-      <div class="caption">En 1935, panafricanistas, comunistas, feligreses y sindicalistas afroamericanos se opusieron a la invasión de Etiopía por Mussolini. Fueron los primeros en ver la conexión entre el imperialismo europeo y la violencia fascista.</div>
-      <img src="https://live.staticflickr.com/65535/55158968742_f71e0b567f_h.jpg" alt="Ethiopia resistencia" class="img-full" style="margin:1rem 0;">
-      <div class="pullquote">
-        En 1934 Etiopía era uno de los dos únicos países africanos que nunca habían sido colonizados por Europa, aunque no fue por falta de intentos.
-        <cite>— Molly Crabapple · The Baffler</cite>
-      </div>
-      <div class="pullquote">
-        Dos años antes de que masacraran a mil seiscientos habitantes de Guernica, Italia inició un bombardeo aéreo rotundo contra civiles. En treinta minutos lanzaron mil bombas sobre Dessie.
-        <cite>— Molly Crabapple · The Baffler</cite>
-      </div>
-      <img src="https://live.staticflickr.com/65535/55160297270_f8d72e7b67_h.jpg" alt="Bob Marley · Beltza Records" class="img-full" style="margin:1rem 0;">
-      <div class="pullquote">
-        Hasta que la filosofía que sostiene que hay una raza superior y otra inferior sea finalmente y permanentemente desacreditada y abandonada, en todas partes habrá guerra.<br><br>
-        Hasta que ya no haya ciudadanos de primera y segunda clase de cualquier nación. Hasta que el color de la piel de un hombre no tenga más importancia que el color de sus ojos, yo digo guerra.<br><br>
-        Hasta que los derechos humanos básicos estén igualmente garantizados para todos sin distinción de raza, habrá guerra.<br><br>
-        Y hasta que el régimen innoble e infeliz que aguantan nuestros hermanos de Angola, en Mozambique, Sudáfrica, esclavitud infrahumana, hayan sido derrocados, completamente destruidos, bueno, en todas partes habrá guerra.<br><br>
-        Y hasta ese día, el continente africano no conocerá la paz. Los africanos lucharemos, lo encontramos necesario, y sabemos que ganaremos.
-        <cite>— Bob Marley · War · Rastaman Vibration · 1976</cite>
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: ETIOPÍA ANTIFASCISMO">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
-
-    <!-- MARQUEE -->
-    <div class="marquee-bar">
-      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
-    </div>
-
-    <!-- POST: FREE HUEY -->
-    <article class="block block-white">
-      <div class="block-tag">Política · Oakland 1968</div>
-      <h2 class="headline-xl">FREE HUEY.</h2>
-      <div class="caption">Oakland, California · 1968 · Free Huey Rally · Black Panther Party · Huey Must Be Set Free</div>
-      <img src="https://live.staticflickr.com/65535/55163473166_f9d3811922_o.jpg" alt="Free Huey Rally West Oakland 1968" class="img-full" style="margin:1rem 0;">
-      <p class="caption" style="text-align:center; margin-bottom:1rem;">· Free Huey Rally · West Oakland · 1968 · Fotografías: Ruth-Marion Baruch ·</p>
-
-      <div class="body-text">
-        Oakland, 1968. El Black Panther Party organiza el Free Huey Rally para pedir la liberación de Huey P. Newton. Cuero negro, boinas negras, radiotransmisores, niños sobre los hombros de sus padres, mujeres sirviendo comida, músicos de blues en los márgenes del río.
-      </div>
-
-      <div class="body-text">
-        La música como acto político. El East Bay Dragons MC aparcando sus choppers en el perímetro. Bobby Seale al micrófono. La multitud respondiendo. Un cartel que dice: <em>Huey Must Be Set Free.</em>
-      </div>
-      <div class="body-text">
-        <strong>Toda gran revolución cultural empieza donde nadie mira.</strong> El Soul, el Funk, el Blues no son géneros — son actos de resistencia. Beltza Records lo supo desde el primer día.
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:3px; margin:1rem 0;">
-        <img src="https://live.staticflickr.com/65535/55163848270_149d49d6aa_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55162574067_b0e32266f4_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55162574052_22da902312_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55163473176_8a35e6acd3_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-      </div>
-      <p class="caption" style="text-align:center; margin-bottom:1rem;">· Free Huey Rally · West Oakland · 1968 · Fotografías: Ruth-Marion Baruch ·</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:3px; margin:1rem 0;">
-        <img src="https://live.staticflickr.com/65535/55163717314_b8b5462038_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55163848290_3de2bcf19e_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55163717359_43f329af2d_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55163473171_34dded9da0_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:1rem 0;">
-        <img src="https://live.staticflickr.com/65535/55163717279_5bf6a9d7fc_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55162574097_13ebac3f88_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-        <img src="https://live.staticflickr.com/65535/55163473196_805715fc9d_o.jpg" alt="Free Huey Rally 1968" style="width:100%; display:block; filter:contrast(1.1);">
-      </div>
-      <img src="https://live.staticflickr.com/65535/55163473156_2fd667b03b_o.jpg" alt="Free Huey Rally 1968" class="img-full" style="margin:1rem 0;">
-      <p class="caption" style="text-align:center; margin-bottom:1rem;">· Free Huey Rally · West Oakland · 1968 · Fotografías: Ruth-Marion Baruch · UC Santa Cruz University Library ·</p>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: FREE HUEY">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
-
-
-
-    <!-- POST: ELECTRO CUMBIA -->
-    <article class="block block-white" id="musica">
-      <div class="block-tag">Música · Nuevo Punk</div>
-      <h2 class="headline-xl">ELECTRO CUMBIA.</h2>
-      <div class="byline">Luis Beltza</div>
       <div class="body-text">
         Se escucha entre los bosques, a orillas de los ríos, en las faldas de los montes, una nueva premisa, un anti-dogma profundo como una cueva penetrando la tierra, la Electro Cumbia Amazónica es el nuevo pulmón de la música, no le tiene miedo a la muerte, si le quiere, aquí le espera de frente y sonriente, es el nuevo PUNK nacido del trópico de habla hispana.
       </div>
-      <img src="https://live.staticflickr.com/65535/55159928733_456ecf2dc5_c.jpg" alt="Lido Pimienta" class="img-full" style="margin:1rem 0;">
-      <p class="caption" style="text-align:center; margin-bottom:1rem;">· <a href="https://lidopimienta.bandcamp.com/merch/lido-pimienta-2025-calendar-never-give-up-nunca-te-rindas" target="_blank" style="color:inherit; text-decoration:none;">Lido Pimienta</a> ·</p>
-      <div class="pullquote">
-        Si es que mañana muero / no le tengo miedo / pues soy mujer y llevo / el dolor adentro
-        <cite>— <a href="https://lidopimienta.bandcamp.com/merch/lido-pimienta-2025-calendar-never-give-up-nunca-te-rindas" target="_blank" style="color:inherit; text-decoration:none;">Lido Pimienta</a> · Nada</cite>
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: ELECTRO CUMBIA">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
-
-    <!-- POST: SPACE IS THE PLACE -->
-    <article class="block block-white" id="cosmos">
-      <div class="block-tag">Cosmos · Silver Surfer</div>
-      <h2 class="headline-xl">SPACE IS THE PLACE.</h2>
-      <div class="caption">Galactus &amp; The Silver Surfer · Jack Kirby</div>
-      <img src="https://live.staticflickr.com/65535/55158876032_e4c80d9c86_b.jpg" alt="Galactus, Silver Surfer, Jack Kirby" class="img-full" style="margin:1rem 0;">
-      <div class="body-text">
-        Jack Kirby lo dibujó así — un dios surfeando el cosmos en una tabla de plata, libre de todo menos de su propia conciencia. El Silver Surfer es la metáfora perfecta del coleccionista de discos: viaja por el universo buscando algo que no sabe nombrar pero reconoce cuando lo encuentra.
-      </div>
-      <div class="body-text">
-        Los Rastros de Júpiter. Space Is The Place. El árbol de Júpiter (Lagerstroemia indica) en el jardín de Parroquia 13. El planeta Júpiter como brújula. La música como nave.
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: SPACE IS THE PLACE">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
+    </div>
+    <div class="pullquote">
+      Si es que mañana muero / no le tengo miedo / pues soy mujer y llevo / el dolor adentro
+      <cite>— Lido Pimienta · Nada</cite>
+    </div>
+    <form class="comment-form" style="margin-top:1.5rem;" action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="hidden" name="post" value="Electro Cumbia">
+      <input type="email" name="email" placeholder="mail obligatorio" required>
+      <textarea name="message" placeholder="Post comment..." required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </section>
 
 
-
-    <!-- POST: INNER VISIONS -->
-    <article class="block block-white" id="archivo">
-      <div class="block-tag">Archivo · Referencias</div>
-      <h2 class="headline-xl">INNER VISIONS.</h2>
-      <div class="byline">Luis Beltza</div>
-      <div class="caption">Stevie Wonder · Innervisions · Tamla 1973</div>
-      <img src="https://live.staticflickr.com/65535/55158895152_aa8a74fe27_b.jpg" alt="Stevie Wonder · Innervisions · Tamla 1973" class="img-full" style="margin:1rem 0;">
-      <div class="caption">A Clockwork Orange · Stanley Kubrick · 1971</div>
-      <img src="https://live.staticflickr.com/65535/55160168310_f3ffdc13c3_b.jpg" alt="A Clockwork Orange · Stanley Kubrick" class="img-full" style="margin:1rem 0;">
-      <div class="body-text">
-        ¿Sería posible hoy interpretar a ALEX y rodar La Naranja Mecánica? En 1971 vivíamos en otro planeta, un planeta desaparecido, engullido por un sistema mundo sin la más mínima humanidad. La pregunta es individual, también colectiva: ejercer de tribu civilizada para imponer la violencia o abrazar la belleza de la violencia para difundir el talento del AMOR. Somos sangre pura, hijos de la creciente fértil, viajeros amazónicos que con lamentos apagamos el dolor de nuestra alma.
-      </div>
-      <div class="caption">First Blood · David Morrell · Fawcett Crest</div>
-      <img src="https://live.staticflickr.com/65535/55159959368_01ba0b930e_h.jpg" alt="First Blood · David Morrell" class="img-full" style="margin:1rem 0;">
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: INNER VISIONS">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
+  <!-- COSMOS · SILVER SURFER -->
+  <section class="block block-white" id="cosmos">
+    <div class="block-tag">Cosmos · Silver Surfer</div>
+    <h2 class="headline-xl">SPACE IS<br>THE PLACE.</h2>
+    <div class="caption">Galactus &amp; The Silver Surfer · Jack Kirby</div>
+    <div class="body-text">
+      Jack Kirby lo dibujó así — un dios surfeando el cosmos en una tabla de plata, libre de todo menos de su propia conciencia. El Silver Surfer es la metáfora perfecta del coleccionista de discos: viaja por el universo buscando algo que no sabe nombrar pero reconoce cuando lo encuentra.<br><br>
+      Los Rastros de Júpiter. Space Is The Place. El árbol de Júpiter (Lagerstroemia indica) en el jardín de Parroquia 13. El planeta Júpiter como brújula. La música como nave.
+    </div>
+    <form class="comment-form" style="margin-top:1.5rem;" action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="hidden" name="post" value="Space Is The Place">
+      <input type="email" name="email" placeholder="mail obligatorio" required>
+      <textarea name="message" placeholder="Post comment..." required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </section>
 
 
+  <!-- ARCHIVO · INNER VISIONS -->
+  <section class="block block-white" id="archivo">
+    <div class="block-tag">Archivo · Referencias</div>
+    <h2 class="headline-xl">INNER<br>VISIONS.</h2>
+    <div class="photo-grid-2" style="grid-template-columns:1fr 1fr 1fr;">
+      <div>
+        <div class="caption">Stevie Wonder · Innervisions · Tamla 1973</div>
+      </div>
+      <div>
+        <div class="caption">A Clockwork Orange · Stanley Kubrick · 1971</div>
+      </div>
+      <div>
+        <div class="caption">First Blood · David Morrell · Fawcett Crest</div>
+      </div>
+    </div>
+    <div class="body-text">
+      ¿Sería posible hoy interpretar a ALEX y rodar La Naranja Mecánica? En 1971 vivíamos en otro planeta, un planeta desaparecido, engullido por un sistema mundo sin la más mínima humanidad. La pregunta es individual, también colectiva: ejercer de tribu civilizada para imponer la violencia o abrazar la belleza de la violencia para difundir el talento del AMOR. Somos sangre pura, hijos de la creciente fértil, viajeros amazónicos que con lamentos apagamos el dolor de nuestra alma.
+    </div>
+    <form class="comment-form" style="margin-top:1.5rem;" action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="hidden" name="post" value="Inner Visions">
+      <input type="email" name="email" placeholder="mail obligatorio" required>
+      <textarea name="message" placeholder="Post comment..." required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </section>
 
-    <!-- POST: SAFE FROM HARM -->
-    <article class="block block-white" id="safe-from-harm">
-      <div class="block-tag">Música · Massive Attack</div>
-      <h2 class="headline-xl">SAFE FROM HARM.</h2>
-      <div class="caption"><a href="https://www.massiveattack.co.uk/" target="_blank" style="color:inherit; text-decoration:none;">Massive Attack</a> with Shara Nelson · Blue Lines · 1991</div>
-      <img src="https://live.staticflickr.com/65535/55159803941_b266e96b9e_b.jpg" alt="Massive Attack with Shara Nelson · Blue Lines · 1991" class="img-full" style="margin:1rem 0;">
-      <div class="body-text">
-        Vivimos tiempos difíciles para la salud mental, nuestras mentes son peligrosas y la farmacología encarcela nuestros más profundos sentimientos en bonitas cajas de metal, oxidadas en casas abandonadas. Sin escaleras al cielo. En la oscuridad de la noche no encontrarás el camino que conduzca a la curación, tierras lejanas ya olvidadas.
-      </div>
-      <div class="pullquote">
-        Puedes liberar el mundo, puedes liberar mi mente / siempre y cuando mi bebé esté a salvo de todo daño esta noche
-        <cite>— <a href="https://www.massiveattack.co.uk/" target="_blank" style="color:inherit; text-decoration:none;">Massive Attack</a> · Safe From Harm · 1991</cite>
-      </div>
-      <div class="comments">
-        <div class="comments-label">COMENTARIOS</div>
-        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
-          <input type="hidden" name="_subject" value="Magic Bus — Comentario: SAFE FROM HARM">
-          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
-          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
-          <textarea name="message" placeholder="Tu comentario..." required></textarea>
-          <button type="submit">ENVIAR</button>
-          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
-        </form>
-      </div>
-    </article>
 
-  </main>
+  <!-- MÚSICA · MASSIVE ATTACK -->
+  <section class="block block-white" id="massive-attack">
+    <div class="block-tag">Música · Massive Attack</div>
+    <h2 class="headline-xl">SAFE FROM<br>HARM.</h2>
+    <div class="caption">Massive Attack with Shara Nelson · Blue Lines · 1991</div>
+    <div class="body-text">
+      Vivimos tiempos difíciles para la salud mental, nuestras mentes son peligrosas y la farmacología encarcela nuestros más profundos sentimientos en bonitas cajas de metal, oxidadas en casas abandonadas. Sin escaleras al cielo. En la oscuridad de la noche no encontrarás el camino que conduzca a la curación, tierras lejanas ya olvidadas.
+    </div>
+    <div class="pullquote">
+      Puedes liberar el mundo, puedes liberar mi mente / siempre y cuando mi bebé esté a salvo de todo daño esta noche
+      <cite>— Massive Attack · Safe From Harm · 1991</cite>
+    </div>
+    <form class="comment-form" style="margin-top:1.5rem;" action="https://formspree.io/f/mnjgdgnw" method="POST">
+      <input type="hidden" name="post" value="Safe From Harm">
+      <input type="email" name="email" placeholder="mail obligatorio" required>
+      <textarea name="message" placeholder="Post comment..." required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="form-ok">¡Eskerrik asko! · Mensaje enviado.</div>
+    </form>
+  </section>
+
+
 </div>
 
 <!-- FOOTER -->
@@ -906,7 +269,7 @@
   <div style="display:inline-flex; align-items:stretch; line-height:1; overflow:hidden;">
     <div style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(2.2rem,5vw,4rem); letter-spacing:0.03em; color:var(--black); padding:0.12em 0.4em; line-height:1; background:var(--red);">BELTZA</div><div style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(2.2rem,5vw,4rem); letter-spacing:0.03em; color:var(--red); padding:0.12em 0.4em; line-height:1; background:var(--black);">RECORDS</div>
   </div>
-  <img src="https://beltzapost-design.github.io/magic-bus/BeltzaLogo.png" alt="Puño Beltza" style="height:clamp(3rem,7vw,5.5rem); width:auto;">
+<img src="BeltzaLogo.png" alt="Puño Beltza" style="height:clamp(3rem,7vw,5.5rem); width:auto;">
 </footer>
 <div style="background:var(--black); border-top:1px solid #1a1a1a; padding:0.5rem clamp(1rem,3vw,2rem);">
   <table style="width:100%; border-collapse:collapse;">
@@ -915,8 +278,10 @@
         BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
       </td>
       <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
-        <a href="https://beltzapost-design.github.io/Manifiesto-Beltza/" target="_blank" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a> ·
-        <a href="https://www.beltzarecords.com/beltzascene" target="_blank" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a> ·
+        <a href="<a href="https://beltzapost-design.github.io/Manifiesto-Beltza/beltza-manifiesto-final.html" target="_bla" target="_blank" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
+        ·
+        <a href="https://www.beltzarecords.com/beltzascene" target="_blank" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a>
+        ·
         <a href="https://www.beltzarecords.com" target="_blank" style="color:var(--amber);text-decoration:none;">beltzarecords.com</a>
       </td>
     </tr>
@@ -924,94 +289,77 @@
 </div>
 <div style="background:var(--black); padding:0.6rem clamp(1rem,3vw,2rem); text-align:center;">
   <div style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.82rem,1.55vw,1.15rem); letter-spacing:0.15em; color:var(--red); text-align:center;">
-    <a href="https://www.beltzarecords.com/" target="_blank" style="color:var(--red);text-decoration:none;">BELTZA RECORDS</a> /
-    <a href="https://www.beltzarecords.com/beltzaexperience" target="_blank" style="color:var(--red);text-decoration:none;">EXPERIENCE</a> /
-    <a href="https://www.beltzarecords.com/parroquia13" target="_blank" style="color:var(--red);text-decoration:none;">ULTRAMARINOS PARROQUIA 13</a>
-    · DONOSTIA _ DONEZTEBE · Since 1990 · (Death or Glory)
+    <a href="https://www.beltzarecords.com/" target="_blank" style="color:var(--red);text-decoration:none;">BELTZA RECORDS</a> / <a href="https://www.beltzarecords.com/beltzaexperience" target="_blank" style="color:var(--red);text-decoration:none;">EXPERIENCE</a> / <a href="https://www.beltzarecords.com/parroquia13" target="_blank" style="color:var(--red);text-decoration:none;">ULTRAMARINOS PARROQUIA 13</a> · DONOSTIA _ DONEZTEBE · Since 1990 · (Death or Glory)
   </div>
 </div>
 
 <script>
-  // IGNICIÓN
-  const digits = document.querySelectorAll('.digit-ignicion[data-n]');
-  const label = document.getElementById('ignicion-label');
-  function runIgnicion() {
-    let current = 9;
-    label.classList.remove('encendido');
-    digits.forEach(d => d.classList.remove('activo','pasado'));
-    function tick() {
-      digits.forEach(d => {
-        const n = parseInt(d.dataset.n);
-        d.classList.remove('activo','pasado');
-        if (n === current) d.classList.add('activo');
-        else if (n > current) d.classList.add('pasado');
+function sendMail() {
+
+}
+
+// Animación ignición
+function toggleSidebar() {
+  var sidebar = document.querySelector('.sidebar');
+  var overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
+
+window.addEventListener('load', function() {
+  // Feedback formularios
+  document.querySelectorAll('form').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) {
+          form.reset();
+          var ok = form.querySelector('.form-ok');
+          if (ok) { ok.style.display = 'block'; setTimeout(function(){ ok.style.display='none'; }, 4000); }
+        }
       });
-      if (current === 0) {
-        label.classList.add('encendido');
-        digits.forEach(d => d.classList.add('pasado'));
-        setTimeout(runIgnicion, 2000);
-        return;
-      }
-      current--;
-      setTimeout(tick, 900);
-    }
-    setTimeout(tick, 800);
-  }
-  runIgnicion();
-
-  // SIDEBAR TOGGLE
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-  }
-
-  // COMENTARIOS — envío AJAX con Formspree
-  function handleComment(e, form) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const ok = form.querySelector('.form-ok');
-    btn.disabled = true;
-    btn.textContent = '...';
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(r => {
-      if (r.ok) {
-        form.reset();
-        btn.style.display = 'none';
-        ok.style.display = 'block';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'ENVIAR';
-        alert('Error al enviar. Inténtalo de nuevo.');
-      }
-    }).catch(() => {
-      btn.disabled = false;
-      btn.textContent = 'ENVIAR';
     });
+  });
+  var digits = ['d9','d8','d7','d6','d5','d4','d3','d2','d1'];
+  var i = 0;
+
+  function reset() {
+    digits.forEach(function(id) {
+      var el = document.getElementById(id);
+      el.classList.remove('activo','pasado');
+    });
+    var label = document.getElementById('ignicion-label');
+    label.classList.remove('encendido');
+    i = 0;
   }
 
-  // BUZÓN
-  function handleBuzon(e, form) {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const ok = document.getElementById('buzon-ok');
-    btn.disabled = true;
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(r => {
-      if (r.ok) {
-        form.reset();
-        btn.style.display = 'none';
-        ok.style.display = 'block';
-      } else {
-        btn.disabled = false;
-      }
-    }).catch(() => { btn.disabled = false; });
+  function next() {
+    if (i > 0) {
+      document.getElementById(digits[i-1]).classList.remove('activo');
+      document.getElementById(digits[i-1]).classList.add('pasado');
+    }
+    if (i < digits.length) {
+      document.getElementById(digits[i]).classList.add('activo');
+      i++;
+      setTimeout(next, 400);
+    } else {
+      var label = document.getElementById('ignicion-label');
+      label.classList.add('encendido');
+      // Pausa en IGNICIÓN y luego bucle
+      setTimeout(function() {
+        reset();
+        setTimeout(next, 600);
+      }, 1800);
+    }
   }
+  setTimeout(next, 800);
+});
 </script>
+
 </body>
 </html>
-</footer>
