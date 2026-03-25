@@ -443,13 +443,8 @@
   .footer a { color: var(--amber); text-decoration: none; }
 
   /* RESPONSIVE */
-  @media (max-width: 1400px) {
-    #ignicion-wrap > div { flex-wrap: wrap !important; }
-    .blackbarella-col { width: 100% !important; min-width: 0 !important; }
-    .dcpc-col { width: 100% !important; min-width: 0 !important; order: 3; }
-    #ignicion-wrap > div > div:nth-child(2) { width: 100% !important; order: 2; }
-  }
-  @media (max-width: 700px) {
+  @media (max-width: 1200px) {
+    #ignicion-wrap > div { grid-template-columns: 1fr !important; }
     .sidebar { display: none; }
     .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; }
     .feed { padding: 1.5rem 1rem; }
@@ -469,11 +464,11 @@
           BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
         </td>
         <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
-          <a href="https://beltzaexperience.github.io/Manifiesto-Beltza/" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
+          <a href="https://beltzaexperience.github.io/Manifiesto-Beltza/" target="_blank" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
           ·
-          <a href="https://www.beltzarecords.com/beltzascene" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a>
+          <a href="https://www.beltzarecords.com/beltzascene" target="_blank" style="color:var(--amber);text-decoration:none;">BELTZA SCENE</a>
           ·
-          <a href="https://www.beltzarecords.com" style="color:var(--amber);text-decoration:none;">BELTZA RECORDS</a>
+          <a href="https://www.beltzarecords.com" target="_blank" style="color:var(--amber);text-decoration:none;">BELTZA RECORDS</a>
         </td>
         <td style="width:2rem; text-align:right;">
           <button class="hamburger" onclick="toggleSidebar()" aria-label="Menú">☰</button>
@@ -492,31 +487,31 @@
 
 <!-- IGNICIÓN -->
 <div id="ignicion-wrap" style="background:var(--black); border-bottom:2px solid var(--red); padding:3rem clamp(1rem,4vw,3rem) 2.5rem;">
-  <div style="display:flex; align-items:flex-start; gap:2rem; width:100%;">
-    <div class="blackbarella-col" style="flex-shrink:0; width:clamp(320px,42vw,520px);">
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; width:100%;">
+    <div class="blackbarella-col">
       <img src="https://beltzaexperience.github.io/magic-bus/blackbarella.jpg" alt="blackbarella" style="width:100%; display:block; filter:contrast(1.1);">
       <p style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:var(--muted); letter-spacing:0.15em; margin-top:0.6rem; text-align:center;">
         · Blackbarella · Ilustración: David Navascues ·
       </p>
     </div>
-    <div style="flex:1; padding-top:0.5rem;">
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5.6vw,4.8rem); letter-spacing:0.05em; color:var(--white); margin-bottom:1.5rem; white-space:nowrap;">
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(1.2rem,2.5vw,2.8rem); letter-spacing:0.05em; color:var(--white); margin-bottom:1.5rem;">
         ACCIÓN DIGITAL DIRECTA!!!
       </div>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        <a href="https://www.beltzarecords.com/beltzaexperience" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Experience</a>
+      <p class="body-text" style="font-size:clamp(0.85rem,1.2vw,1.1rem); line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
+        <a href="https://www.beltzarecords.com/beltzaexperience" target="_blank" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Experience</a>
         es la evolución lógica de
-        <a href="https://www.beltzarecords.com" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Records</a>
+        <a href="https://www.beltzarecords.com" target="_blank" style="color:var(--white); font-weight:700; text-decoration:none;">Beltza Records</a>
         (desde 1990).
       </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        El Magic Bus recorriendo el Siglo XXI y ½ es el viaje vital de <strong style="color:var(--white);">Beltza Press</strong>.
+      <p class="body-text" style="font-size:clamp(0.85rem,1.2vw,1.1rem); line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
+        El Magic Bus recorriendo el Siglo XXI y ½ es el viaje vital de <strong style="color:var(--white);"><a href="https://www.beltzarecords.com/beltzascene" target="_blank" style="color:var(--white); text-decoration:none;">Beltza Press</a></strong>.
       </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
-        Ven a <a href="https://www.beltzarecords.com/parroquia13" style="color:var(--white); font-weight:700; text-decoration:none;">Parroquia 13</a>
+      <p class="body-text" style="font-size:clamp(0.85rem,1.2vw,1.1rem); line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem;">
+        Ven a <a href="https://www.beltzarecords.com/parroquia13" target="_blank" style="color:var(--white); font-weight:700; text-decoration:none;">Parroquia 13</a>
         — entrarás con la curiosidad de Ziggy Stardust y saldrás llorando de la emoción.
       </p>
-      <p class="body-text" style="font-size:1.85rem; line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem; color:var(--white);">
+      <p class="body-text" style="font-size:clamp(0.85rem,1.2vw,1.1rem); line-height:1.6; border-bottom:1px solid #2a2a2a; padding-bottom:0.8rem; margin-bottom:0.8rem; color:var(--white);">
         ¿ESTÁS PREPARADO PARA EL VIAJE?
       </p>
       <div style="margin-top:2rem; display:flex; align-items:center; flex-wrap:wrap; gap:0.5rem; justify-content:center;">
@@ -532,7 +527,7 @@
         <span id="ignicion-label" class="digit-ignicion" style="letter-spacing:0.15em;">IGNICIÓN</span>
       </div>
     </div>
-    <div class="dcpc-col" style="flex-shrink:0; width:clamp(340px,45vw,550px);">
+    <div class="dcpc-col">
       <img src="https://beltzaexperience.github.io/magic-bus/DCPC%20.jpg" alt="It's Time — DCPC" style="width:100%; display:block; filter:contrast(1.1);">
       <p style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:var(--muted); letter-spacing:0.15em; margin-top:0.6rem; text-align:center;">
         · It's Time · DCPC · Cartel: David Navascués ·
@@ -605,13 +600,13 @@
 
     <!-- META -->
     <div class="sidebar-meta">
-      <a href="https://www.beltzarecords.com/beltzablog/493-magic-bus-1-1989">Magic Bus nº1</a><br>
+      <a href="https://www.beltzarecords.com/beltzablog/493-magic-bus-1-1989" target="_blank">Magic Bus nº1</a><br>
       Donostia, 1989<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzablog/497-magic-bus-2-1989">Magic Bus nº2</a><br>
+      <a href="https://www.beltzarecords.com/beltzablog/497-magic-bus-2-1989" target="_blank">Magic Bus nº2</a><br>
       Donostia, 1989<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzablog/506-magic-bus-3-1990">Magic Bus nº3</a><br>
+      <a href="https://www.beltzarecords.com/beltzablog/506-magic-bus-3-1990" target="_blank">Magic Bus nº3</a><br>
       Donostia, 1990<br>——<br>
-      <a href="https://www.beltzarecords.com/beltzascene">Beltza Scene →</a><br>
+      <a href="https://www.beltzarecords.com/beltzascene" target="_blank">Beltza Scene →</a><br>
       Donostia, 2004<br>——<br>
       Magic Bus<br>
       Siglo XXI y ½<br>
