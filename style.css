@@ -80,11 +80,11 @@
   .block-white {
     background-color: #f0e8d8;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
       linear-gradient(135deg, rgba(180,160,120,0.06) 0%, transparent 50%, rgba(180,160,120,0.04) 100%);
     color: var(--black);
     padding: clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
-    margin: 0 0 0 0;
+    margin: 0;
   }
   .block-white .block-tag { color: var(--red); border-color: rgba(176,26,26,0.3); }
   .block-white .headline-xl { color: var(--black); }
@@ -149,8 +149,8 @@
     will-change: transform;
   }
   @keyframes marquee {
-    from { transform: translateX(100vw); }
-    to   { transform: translateX(-100%); }
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
 
   /* LAYOUT */
@@ -268,29 +268,194 @@
     font-family: 'Courier Prime', monospace;
     font-size: 0.78rem;
     color: var(--muted);
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 0.5rem;
   }
-/* ... todo el CSS que ya tienes ... */
 
-}
+  .body-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.05rem;
+    line-height: 2.05;
+    color: #8a7e6e;
+    margin-bottom: 1.2rem;
+  }
+  .body-text em { color: var(--white); font-style: italic; }
 
-/* CAJAS DE COMENTARIOS */
-.caja-comentario {
-  background: rgba(176,26,26,0.1);
-  padding: 2rem;
-  border-left: 4px solid var(--red);
-  margin-bottom: 2rem;
-}
+  .pullquote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--white);
+    border-left: 3px solid var(--red);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(176,26,26,0.05);
+  }
+  .pullquote cite {
+    display: block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+  }
 
-.texto-comentario {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.2rem;
-  color: var(--white);
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
+  .olivetti {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    line-height: 2.1;
+    color: #999;
+    letter-spacing: 0.02em;
+    padding: 1.5rem;
+    border: 1px solid #1e1e1e;
+    background: rgba(0,0,0,0.05);
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  .olivetti::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -0.6rem; left: 1rem;
+    background: var(--black);
+    padding: 0 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
 
-.firma-comentario {
-  font-family: 'Courier Prime', monospace;
-  color: var(--amber);
-  font-style: italic;
-}
+  .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .sep-line { border: none; border-top: 1px solid #1a1a1a; margin: 2rem 0; }
+  .sep-red  { border: none; border-top: 2px solid var(--red); margin: 2rem 0; }
+
+  /* FOTOS */
+  .img-full  { width: 100%; display: block; filter: contrast(1.1); }
+  .float-right { float: right; width: 45%; margin: 0 0 1.5rem 2rem; }
+  .float-right img { width: 100%; display: block; filter: contrast(1.1); }
+  .clearfix::after { content: ''; display: table; clear: both; }
+  .photo-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 1rem 0; }
+  .photo-grid-2 img { width: 100%; display: block; filter: contrast(1.1); }
+
+  /* COMENTARIOS */
+  .comments { margin-top: 2rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
+  .comments-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  .comment { margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid #111; }
+  .comment-author {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+  }
+  .comment-year { font-size: 0.72rem; color: #444; margin-left: 0.5rem; }
+  .comment-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.92rem;
+    color: #777;
+    line-height: 1.8;
+    margin-top: 0.3rem;
+    font-style: italic;
+  }
+  .comment-form { margin-top: 1.2rem; }
+  .comment-form input[type="text"],
+  .comment-form input[type="email"] {
+    width: 100%;
+    display: block;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid #c8b89a;
+    color: #8a7e6e;
+    padding: 0.8rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .comment-form textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid #c8b89a;
+    color: #8a7e6e;
+    padding: 0.8rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .comment-form input::placeholder,
+  .comment-form textarea::placeholder { color: #555; letter-spacing: 0.1em; }
+  .comment-form textarea { resize: vertical; min-height: 80px; }
+  .form-ok {
+    display: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--amber);
+    margin-top: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    border-left: 3px solid var(--amber);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: rgba(0,0,0,0.05);
+    border-top: 2px solid var(--red);
+    padding: 1.5rem 2.5rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.72rem;
+    color: #333;
+    letter-spacing: 0.15em;
+    text-align: center;
+    line-height: 2.2;
+    margin-top: 4rem;
+  }
+  .footer a { color: var(--amber); text-decoration: none; }
+
+  /* CAJAS DE COMENTARIOS */
+  .caja-comentario {
+    background: rgba(176,26,26,0.1);
+    padding: 2rem;
+    border-left: 4px solid var(--red);
+    margin-bottom: 2rem;
+  }
+  .texto-comentario {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .firma-comentario {
+    font-family: 'Courier Prime', monospace;
+    color: var(--amber);
+    font-style: italic;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    #ignicion-wrap > div { grid-template-columns: 1fr !important; }
+    .sidebar { display: none; }
+    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; overflow-y: auto; }
+    .feed { padding: 1.5rem 1rem; }
+    .float-right { float: none; width: 100%; margin: 0 0 1.5rem; }
+    .brand-slash { flex-wrap: wrap; gap: 0.5rem; }
+  }
