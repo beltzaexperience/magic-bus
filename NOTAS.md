@@ -1,121 +1,130 @@
-# Magic Bus · Siglo XXI y ½ — Notas de Diseño y Estructura
-**Repo:** https://github.com/beltzaexperience/magic-bus  
-**URL:** https://beltzaexperience.github.io/magic-bus/  
-**Editor:** Luis Beltza · Doneztebe, Nafarroa  
-**Estado:** activo y funcionando  
-
----
+# MAGIC BUS — NOTAS DE PROYECTO
 
 ## Archivos
-- `magic-bus-xxi.html` — estructura HTML principal
-- `style.css` — CSS externo
-- `BeltzaLogo.png` — puño Beltza Records (alojado en repo)
-- `blackbarella.jpg` — ilustración Blackbarella · David Navascues
-- `DCPC .jpg` — cartel It's Time · David Navascués
+- `index.html` — CSS inlinado para local
+- `style.css` — CSS externo para GitHub Pages
 
 ---
 
-## Colores
+## ARQUITECTURA DE SECCIONES
+
+### Modelo: Filtro temático (Modelo A)
+- El lector pincha una sección en el sidebar → ve solo los artículos de esa sección
+- Un artículo puede pertenecer a varias secciones
+- El sidebar es un navegador temático, NO un índice
+- Se implementa con JS: data-secciones en cada article, función filtrar()
+- El sidebar NO lista artículos — solo secciones
+
+### Secciones definitivas y artículos
+
+| Sección | ID sidebar | Artículos |
+|---|---|---|
+| Historia | historia | hacha-vasca · balleneros · jupiter |
+| Música | musica | lkj · karen · satan · musica · cosmos · archivo · safe-from-harm |
+| Política | politica | lkj · jupiter · satan · politica · free-huey |
+| Poesía | poesia | lkj · safe-from-harm · archivo |
+| Black Power | black-power | politica · free-huey |
+| Fútbol | futbol | jupiter |
+| Cómics | comics | cosmos |
+| Digitalismo | digitalismo | digitalismo |
+| Cosmos | cosmos | cosmos |
+| Cine | cine | archivo |
+| Literatura | literatura | archivo |
+| Euskal Herria | euskal-herria | hacha-vasca · balleneros |
+| Angustia existencial | angustia | safe-from-harm · archivo · digitalismo |
+
+### Secciones eliminadas
+- **Archivo** — innecesario, todo el MB es referente Beltza
+
+### Implementación JS (pendiente)
+Cada article tiene atributo `data-secciones`:
+```html
+<article id="lkj" data-secciones="musica politica poesia">
 ```
---black:  #0a0a0a
---white:  #f2ede6  (crema)
---red:    #b01a1a
---amber:  #c8922a
---muted:  #666
-Fondo artículos: crema #f0e8d8 (mismo que credo Manifiesto)
-Texto artículos: #1a1a1a / #333
+El JS filtra:
+```javascript
+function filtrarSeccion(seccion) {
+  document.querySelectorAll('article').forEach(art => {
+    const secs = art.dataset.secciones || '';
+    art.style.display = (seccion === 'todas' || secs.includes(seccion)) ? '' : 'none';
+  });
+  recolocarMarquee();
+}
+```
+El sidebar marca la sección activa con clase `.activa`.
+Botón "VER TODO" o clic en sección activa devuelve a la vista completa.
+
+---
+
+## NORMAS UR EN ROJO
+
+- Todo fonema UR en texto visible va en `<span style="color:#b01a1a;">ur</span>`
+- La palabra que lo contiene va en el color del texto (negro/crema según contexto)
+- **NUNCA** marcar sílabas que no son UR: `ir`, `u` sola, etc.
+- En pullquotes (color amber): envolver prefijo y sufijo en `<span style="color:#333;">`
+- Palabras CON UR: cultura, insurrección, disturbio, locura, Durruti, hurón, Europa...
+- Palabras SIN UR aunque parezca: Aguirre (ir), infortunio (u sola), brutal (ru al revés)
+
+---
+
+## NORMA TEXTO EN BLANCO
+
+- Texto blanco SOLO sobre fondo negro (cajas, olivettis, topband, footer)
+- NUNCA texto blanco sobre fondo crema — invisible
+- Etiquetas AUTOR y FUENTE: span con `color:#f2ede6` + `background:var(--black)`
+- En CSS pendiente: `.olivetti[data-label="AUTOR"]::before, .olivetti[data-label="FUENTE"]::before { color: var(--white); }`
+
+---
+
+## NORMA FIRMA AUTORÍA
+
+- Luis Beltza firma SOLO cuando él lo pide explícitamente
+- Textos propios identificados:
+  - Ponzoña Digital (completo)
+  - Safe From Harm (párrafo inicial)
+  - Inner Visions (texto)
+  - Electro Cumbia (texto)
+  - Free Huey (texto)
+
+---
+
+## NORMA MARQUEE DE TEXTO
+
+- Un único marquee `id="marquee-principal"`
+- Siempre después del artículo más reciente
+- Línea negra `clamp(0.5rem,2vw,1.75rem)` arriba Y abajo
+- El JS lo recoloca al cambiar de modo o filtrar por sección
+
+---
+
+## ESTRUCTURA DE ARTÍCULO TIPO
+
+```html
+<article id="[id]" data-secciones="[sec1] [sec2] [sec3]" class="block block-white">
+  <div class="block-tag">[Sección] · [Subsección]</div>
+  <h2 class="headline-xl">[TÍTULO]</h2>
+  <div class="byline">[Fuente — sin Luis Beltza salvo petición]</div>
+  [foto full] · [caption] · [body-text] · [pullquote] · [fotos] · [olivetti FUENTE/AUTOR] · [comments]
+</article>
 ```
 
 ---
 
-## Tipografías
-- **Bebas Neue** — topband, brand-slash, marquees, títulos sección
-- **Courier Prime** — cuerpo de texto artículos
-- (Sin Playfair Display en este proyecto)
+## NÚMEROS DEL FANZINE
+
+- Nº1: 13 artículos — CERRADO
+- Nº2: pendiente
+- Cada número = unidad cerrada de 13 artículos
+- Modos: DIARIO · CRONOLÓGICO · POR NÚMERO (pendiente)
 
 ---
 
-## Estructura general (de arriba a abajo)
-1. **Topband sticky** — BELTZA RECORDS · DONOSTIA _ DONEZTEBE | MANIFIESTO · BELTZA SCENE · BELTZA RECORDS | ☰ hamburguesa
-2. **Brand-slash** — MAGIC BUS (negro sobre rojo) + SIGLO XXI Y ½ (rojo sobre negro)
-3. **Puño** BeltzaLogo.png
-4. **Blackbarella** — ilustración David Navascues
-5. **Texto intro** — presentación del proyecto + countdown IGNICIÓN (9·8·7...1·IGNICIÓN con JS)
-6. **Cartel DCPC** — It's Time
-7. **Marquee portadas** — 11 discos Flickr duplicados para loop
-8. **Layout flex** — sidebar izquierda + contenido artículos
-9. **Marquee géneros** — SOUL · FUNK · REGGAE... (entre artículos)
-10. **Brand-slash inferior** — BELTZA/RECORDS + puño
-11. **Footer** — links proyectos + DONOSTIA · Since 1990 · (Death or Glory)
+## PENDIENTE
 
----
-
-## Layout artículos
-```
-display: flex
-├── sidebar izquierda — secciones + buzón contacto + archivo histórico
-└── main (contenido) — artículos por sección
-```
-
-### Sidebar
-- **Secciones:** Música, Política, Digitalismo, Cine, Fotografía, Literatura, Cosmos, Gastronomía, Beltza Style, Euskal Herria, Cómics, Archivo
-- **Buzón:** formulario ✉ Escríbenos con confirmación "¡Eskerrik asko!"
-- **Archivo histórico:** Magic Bus nº1 (1989), nº2 (1989), nº3 (1990), Beltza Scene (2004), Magic Bus Siglo XXI y ½ (2026)
-- **Editor:** Luis Beltza
-
-### Artículos — estructura tipo
-- Categoría + tema en pequeño (ej: "Digitalismo · Sistema Mundo")
-- Título H2
-- Autor (Luis Beltza u otro)
-- Imagen principal (Flickr o externa)
-- Cuerpo Courier Prime, fondo crema #f0e8d8
-- Cita destacada con guión largo — autor · disco · año
-- Sección comentarios con formulario
-- Marquee géneros separador entre artículos
-
----
-
-## Artículos publicados
-1. **PONZOÑA DIGITAL EN UN SISTEMA MUNDO DIGITALISTA** — Digitalismo · Luis Beltza
-2. **KAREN Y LOS REMEDIOS** — Música · Cumbia Amazónica · Luis Beltza
-3. **SATÁN LEVANTANDO CON SU MALDAD LA CIVILIZACIÓN PIRAMIDAL** — Política · Afghan Whigs
-4. **LA IGNORADA VANGUARDIA ANTIFASCISTA NEGRA DE EE.UU.** — Política · Antifascismo · Molly Crabapple / The Baffler
-5. **FREE HUEY** — Política · Oakland 1968 · Black Panther Party · Fotos: Ruth-Marion Baruch
-6. **ELECTRO CUMBIA** — Música · Nuevo Punk · Luis Beltza · Lido Pimienta
-7. **SPACE IS THE PLACE** — Cosmos · Silver Surfer · Galactus · Jack Kirby
-8. **INNER VISIONS** — Archivo · Referencias · Stevie Wonder · Kubrick · First Blood
-9. **SAFE FROM HARM** — Música · Massive Attack · Shara Nelson · Blue Lines 1991
-
----
-
-## Countdown IGNICIÓN
-JS animado: 9·8·7·6·5·4·3·2·1·IGNICIÓN con efecto visual de encendido en rojo.
-
----
-
-## Marquee géneros (entre artículos)
-```
-SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · 
-BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · 
-FREE JAZZ · NORTHERN SOUL
-```
-
----
-
-## Marquee portadas (fotos Flickr)
-Prince Phillip Mitchell · Mito y Comadre · Toquinho & Vinicius de Moraes · Extremadura · Stiff Little Fingers · Buho · Karen y los Remedios · Dillinger · Madness · Arturo Somohano · Anima Latina Vol.2 (duplicados para loop continuo)
-
----
-
-## Proyectos relacionados
-- **Manifiesto:** https://github.com/beltzaexperience/Manifiesto-Beltza
-- **UR-SAPIENS:** https://github.com/beltzaexperience/UR-SAPIENS
-- **Beltza Records:** https://www.beltzarecords.com
-- **Beltza Scene:** https://www.beltzarecords.com/beltzascene
-- **Parroquia 13:** https://www.beltzarecords.com/parroquia13
-
----
-
-## Pendientes
-- Añadir link a UR-SAPIENS en topband y footer
-- NOTAS.md subido al repo
+- [ ] Añadir `data-secciones` a todos los artículos
+- [ ] JS filtro por sección con recolocación del marquee
+- [ ] Botón VER TODO en sidebar
+- [ ] Tres modos: DIARIO · CRONOLÓGICO · POR NÚMERO
+- [ ] Paginación visible tipo fanzine
+- [ ] CSS: `.olivetti[data-label="AUTOR/FUENTE"]::before { color: var(--white) }`
+- [ ] Revisar móvil con filtro activo

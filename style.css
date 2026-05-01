@@ -1,29 +1,24 @@
-
-:root {
+  :root {
     --black: #0a0a0a;
     --white: #f2ede6;
     --red: #b01a1a;
     --amber: #c8922a;
     --muted: #666;
-    --sidebar: 220px;
+    --sidebar: 330px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--black);
     color: var(--white);
     font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     line-height: 1.9;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
   /* CABECERA */
-  .header-sticky {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  .header-sticky { position: sticky; top: 0; z-index: 100; }
   .topband {
     background: var(--black);
     border-bottom: 1px solid #1e1e1e;
@@ -40,7 +35,6 @@
     color: var(--white);
     white-space: nowrap;
   }
-  .topband-logo .dot { color: var(--red); margin: 0 0.3rem; }
   .topband-nav {
     display: flex;
     align-items: center;
@@ -52,6 +46,10 @@
   .topband-nav a { color: var(--amber); text-decoration: none; transition: color 0.15s; }
   .topband-nav a:hover { color: var(--white); }
   .topband-nav .sep { color: #333; }
+  .hamburger {
+    background: none; border: none; color: var(--white);
+    font-size: 1.2rem; cursor: pointer; padding: 0.2rem 0.4rem;
+  }
 
   .brand-slash {
     background: var(--red);
@@ -84,22 +82,24 @@
       linear-gradient(135deg, rgba(180,160,120,0.06) 0%, transparent 50%, rgba(180,160,120,0.04) 100%);
     color: var(--black);
     padding: clamp(2rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
-    margin: 0;
   }
-  .block-white .block-tag { color: var(--red); border-color: rgba(176,26,26,0.3); }
+  .block-white .block-tag { color: var(--red); }
+  .block-white .block-tag::after { background: rgba(176,26,26,0.2); }
   .block-white .headline-xl { color: var(--black); }
-  .block-white .byline { color: #555; border-color: rgba(0,0,0,0.1); }
-  .block-white .caption { color: #777; }
-  .block-white .olivetti { color: var(--black); border-color: rgba(0,0,0,0.15); background: rgba(0,0,0,0.03); }
+  .block-white .byline { color: #555; }
+  .block-white .caption { color: #777; border-color: rgba(0,0,0,0.1); }
   .block-white .body-text { color: #333; }
-  .block-white .comments { border-color: rgba(0,0,0,0.1); }
-  .block-white .comments-label { color: var(--red); border-color: rgba(176,26,26,0.2); }
+  .block-white .olivetti { color: var(--black); border-color: rgba(0,0,0,0.15); background: rgba(0,0,0,0.03); }
+  .block-white .caption { font-weight: 700; color: var(--amber); border-color: rgba(0,0,0,0.1); }
+  .block-white .pullquote { color: var(--red); background: rgba(176,26,26,0.04); }
+  .block-white .pullquote cite { font-weight: 700; color: var(--amber); }
+  .block-white .comments-label { color: var(--red); }
   .block-white .comment { border-color: rgba(0,0,0,0.08); }
   .block-white .comment-author { color: var(--black); }
   .block-white .comment-year { color: #888; }
   .block-white .comment-text { color: #333; }
   .block-white .comment-form textarea { background: rgba(0,0,0,0.05); color: var(--black); border-color: rgba(0,0,0,0.15); }
-  .block-white .comment-form input[type="email"] { background: rgba(0,0,0,0.05); color: var(--black); border-color: rgba(0,0,0,0.15); }
+  .block-white .comment-form input { background: rgba(0,0,0,0.05); color: var(--black); border-color: rgba(0,0,0,0.15); }
   .block-white .comment-form button { background: var(--red); color: var(--white); }
 
   /* IGNICION */
@@ -110,16 +110,9 @@
     color: var(--white);
     transition: color 0.15s, text-shadow 0.15s;
   }
-  .digit-ignicion.activo {
-    color: var(--red);
-    text-shadow: 0 0 18px rgba(176,26,26,0.7);
-  }
+  .digit-ignicion.activo { color: var(--red); text-shadow: 0 0 18px rgba(176,26,26,0.7); }
   .digit-ignicion.pasado { color: #555; }
-  .sep-ignicion {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.8rem);
-    color: #555;
-  }
+  .sep-ignicion { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.8rem); color: #555; }
   #ignicion-label { transition: color 0.3s, text-shadow 0.3s; }
   #ignicion-label.encendido {
     color: var(--red);
@@ -148,7 +141,8 @@
     color: var(--white);
     will-change: transform;
   }
-  @keyframes marquee {
+
+@keyframes marquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
   }
@@ -160,24 +154,32 @@
   .sidebar {
     width: var(--sidebar);
     min-width: var(--sidebar);
-    border-right: none;
-    padding: 1.5rem 1.2rem;
+    background: var(--black);
+    padding: 2rem 1rem;
     position: sticky;
     top: 90px;
     height: calc(100vh - 90px);
     overflow-y: auto;
   }
+  .sidebar-inner {
+    background-color: #f0e8d8;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
+      linear-gradient(135deg, rgba(180,160,120,0.06) 0%, transparent 50%, rgba(180,160,120,0.04) 100%);
+    padding: 1.5rem 1.2rem;
+    color: var(--black);
+  }
   .sidebar-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.72rem;
+    font-size: 1.1rem;
     letter-spacing: 0.35em;
     color: var(--red);
     margin-bottom: 1.2rem;
   }
-  .sidebar nav a {
+  .sidebar-inner nav a {
     display: block;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.88rem;
+    font-size: 1.05rem;
     letter-spacing: 0.2em;
     color: #2a2a2a;
     text-decoration: none;
@@ -185,26 +187,26 @@
     border-bottom: 1px solid rgba(0,0,0,0.1);
     transition: color 0.15s;
   }
-  .sidebar nav a:hover { color: var(--red); }
-  .sidebar nav a::before { content: '· '; color: var(--red); }
+  .sidebar-inner nav a:hover { color: var(--red); }
+  .sidebar-inner nav a::before { content: '· '; color: var(--red); }
 
   /* BUZÓN */
   .buzon { margin-top: 2.5rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
   .buzon-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.72rem;
+    font-size: 1rem;
     letter-spacing: 0.3em;
     color: var(--red);
     margin-bottom: 0.8rem;
   }
-  .buzon input[type="email"], .buzon textarea {
+  .buzon input, .buzon textarea {
     width: 100%;
-    background: #111;
-    border: 1px solid #2a2a2a;
-    color: var(--white);
+    background: rgba(0,0,0,0.05);
+    border: 1px solid #c8b89a;
+    color: #8a7e6e;
     padding: 0.5rem 0.7rem;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
     outline: none;
   }
@@ -226,23 +228,23 @@
   .sidebar-meta {
     margin-top: 2rem;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.72rem;
+    font-size: 0.95rem;
     color: #333;
     line-height: 2;
     letter-spacing: 0.05em;
   }
+  .sidebar-meta a { color: #444; text-decoration: none; }
+  .sidebar-meta a:hover { color: var(--amber); }
 
   /* FEED */
   .feed { flex: 1; padding: 2rem 2.5rem; min-width: 0; }
 
   /* BLOQUES */
   .block { margin-bottom: 0; }
-  .block + .block, .block + .marquee-bar, .marquee-bar + .block {
-    margin-top: 2rem;
-  }
+  .block + .block, .block + .marquee-bar, .marquee-bar + .block { margin-top: 2rem; }
   .block-tag {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.82rem;
+    font-size: 1.1rem;
     letter-spacing: 0.35em;
     color: var(--red);
     text-transform: uppercase;
@@ -261,22 +263,24 @@
     color: var(--white);
     margin-bottom: 1rem;
   }
-  .headline-xl.red   { color: var(--red); }
+  a { text-decoration: underline; }
+  a:hover { color: var(--red) !important; }
+  a[style*="color:var(--red)"]:hover,
+  a[style*="color: var(--red)"]:hover { color: var(--white) !important; }
   .headline-xl.amber { color: var(--amber); }
 
   .caption {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem;
+    font-size: 1rem;
     color: var(--muted);
     letter-spacing: 0.1em;
     padding: 0.4rem 0;
     border-bottom: 1px solid #1a1a1a;
     margin-bottom: 0.5rem;
   }
-
   .body-text {
     font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     line-height: 2.05;
     color: #8a7e6e;
     margin-bottom: 1.2rem;
@@ -285,7 +289,7 @@
 
   .pullquote {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
     line-height: 1.5;
     color: var(--white);
@@ -297,7 +301,7 @@
   .pullquote cite {
     display: block;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-style: normal;
     letter-spacing: 0.2em;
     color: var(--amber);
@@ -307,7 +311,7 @@
 
   .olivetti {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     line-height: 2.1;
     color: #999;
     letter-spacing: 0.02em;
@@ -323,7 +327,7 @@
     top: -0.6rem; left: 1rem;
     background: var(--black);
     padding: 0 0.5rem;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     letter-spacing: 0.3em;
     color: var(--red);
     text-transform: uppercase;
@@ -331,7 +335,7 @@
 
   .byline {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.85rem;
+    font-size: 1rem;
     letter-spacing: 0.2em;
     color: var(--amber);
     text-transform: uppercase;
@@ -353,7 +357,7 @@
   .comments { margin-top: 2rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
   .comments-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     letter-spacing: 0.3em;
     color: var(--red);
     margin-bottom: 1rem;
@@ -361,14 +365,14 @@
   .comment { margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid #111; }
   .comment-author {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     letter-spacing: 0.2em;
     color: var(--amber);
   }
   .comment-year { font-size: 0.72rem; color: #444; margin-left: 0.5rem; }
   .comment-text {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.92rem;
+    font-size: 1.05rem;
     color: #777;
     line-height: 1.8;
     margin-top: 0.3rem;
@@ -384,7 +388,7 @@
     color: #8a7e6e;
     padding: 0.8rem;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.92rem;
+    font-size: 1.05rem;
     margin-bottom: 0.5rem;
     outline: none;
     box-sizing: border-box;
@@ -396,18 +400,19 @@
     color: #8a7e6e;
     padding: 0.8rem;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.92rem;
+    font-size: 1.05rem;
     margin-bottom: 0.5rem;
     outline: none;
     box-sizing: border-box;
   }
-  .comment-form input::placeholder,
+  .comment-form input[type="text"]::placeholder,
+  .comment-form input[type="email"]::placeholder,
   .comment-form textarea::placeholder { color: #555; letter-spacing: 0.1em; }
   .comment-form textarea { resize: vertical; min-height: 80px; }
   .form-ok {
     display: none;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.85rem;
+    font-size: 1rem;
     letter-spacing: 0.3em;
     color: var(--amber);
     margin-top: 0.8rem;
@@ -421,7 +426,7 @@
     border-top: 2px solid var(--red);
     padding: 1.5rem 2.5rem;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     color: #333;
     letter-spacing: 0.15em;
     text-align: center;
@@ -430,31 +435,11 @@
   }
   .footer a { color: var(--amber); text-decoration: none; }
 
-  /* CAJAS DE COMENTARIOS */
-  .caja-comentario {
-    background: rgba(176,26,26,0.1);
-    padding: 2rem;
-    border-left: 4px solid var(--red);
-    margin-bottom: 2rem;
-  }
-  .texto-comentario {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.05rem;
-    color: var(--white);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-  .firma-comentario {
-    font-family: 'Courier Prime', monospace;
-    color: var(--amber);
-    font-style: italic;
-  }
-
   /* RESPONSIVE */
   @media (max-width: 1200px) {
     #ignicion-wrap > div { grid-template-columns: 1fr !important; }
     .sidebar { display: none; }
-    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; overflow-y: auto; }
+    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; }
     .feed { padding: 1.5rem 1rem; }
     .float-right { float: none; width: 100%; margin: 0 0 1.5rem; }
     .brand-slash { flex-wrap: wrap; gap: 0.5rem; }

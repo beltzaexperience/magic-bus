@@ -577,21 +577,30 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-inner">
     <div class="sidebar-label">Secciones</div>
+
+    <!-- CRONOLÓGICO / DIARIO -->
+    <a id="btnOrden" href="#" onclick="toggleOrden(); return false;" style="display:block; font-family:'Bebas Neue',sans-serif; font-size:0.88rem; letter-spacing:0.2em; color:var(--red); text-decoration:none; padding:0.35rem 0; border-bottom:1px solid rgba(176,26,26,0.3); margin-bottom:0.3rem;">⇄ CRONOLÓGICO</a>
+
+    <!-- BUSCADOR -->
+    <input id="buscador" type="text" placeholder="Buscar en el fanzine..." oninput="buscarTexto(this.value)" style="width:100%; background:#111; border:1px solid #2a2a2a; color:var(--white); padding:0.4rem 0.6rem; font-family:'Courier Prime',monospace; font-size:0.78rem; outline:none; margin-bottom:0.8rem; display:block;">
+
     <nav>
-      <a href="#historia">Historia</a>
-      <a href="#musica">Música</a>
-      <a href="#politica">Política</a>
-      <a href="#digitalismo">Digitalismo</a>
-      <a href="#cine">Cine</a>
-      <a href="#fotografia">Fotografía</a>
-      <a href="#literatura">Literatura</a>
-      <a href="#cosmos">Cosmos</a>
-      <a href="#gastronomia">Gastronomía</a>
-      <a href="#beltza-style">Beltza Style</a>
-      <a href="#euskal-herria">Euskal Herria</a>
-      <a href="#comics">Cómics</a>
-      <a href="#archivo">Archivo</a>
+      <a href="#" onclick="filtrarSeccion('todas'); return false;" id="sec-todas" class="sec-link activa">· VER TODO</a>
+      <a href="#" onclick="filtrarSeccion('angustia'); return false;" id="sec-angustia" class="sec-link">Angustia existencial</a>
+      <a href="#" onclick="filtrarSeccion('black-power'); return false;" id="sec-black-power" class="sec-link">Black Power</a>
+      <a href="#" onclick="filtrarSeccion('cine'); return false;" id="sec-cine" class="sec-link">Cine</a>
+      <a href="#" onclick="filtrarSeccion('comics'); return false;" id="sec-comics" class="sec-link">Cómics</a>
+      <a href="#" onclick="filtrarSeccion('cosmos'); return false;" id="sec-cosmos" class="sec-link">Cosmos</a>
+      <a href="#" onclick="filtrarSeccion('digitalismo'); return false;" id="sec-digitalismo" class="sec-link">Digitalismo</a>
+      <a href="#" onclick="filtrarSeccion('euskal-herria'); return false;" id="sec-euskal-herria" class="sec-link">Euskal Herria</a>
+      <a href="#" onclick="filtrarSeccion('futbol'); return false;" id="sec-futbol" class="sec-link">Fútbol</a>
+      <a href="#" onclick="filtrarSeccion('historia'); return false;" id="sec-historia" class="sec-link">Historia</a>
+      <a href="#" onclick="filtrarSeccion('literatura'); return false;" id="sec-literatura" class="sec-link">Literatura</a>
+      <a href="#" onclick="filtrarSeccion('musica'); return false;" id="sec-musica" class="sec-link">Música</a>
+      <a href="#" onclick="filtrarSeccion('poesia'); return false;" id="sec-poesia" class="sec-link">Poesía</a>
+      <a href="#" onclick="filtrarSeccion('politica'); return false;" id="sec-politica" class="sec-link">Política</a>
     </nav>
+
 
     <!-- BUZÓN -->
     <div class="buzon">
@@ -615,9 +624,8 @@
       Donostia, 1990<br>——<br>
       <a href="https://www.beltzarecords.com/beltzascene" target="_blank">Beltza Scene →</a><br>
       Donostia, 2004<br>——<br>
-      Magic Bus<br>
-      Siglo XXI y ½<br>
-      2026 →<br>——<br>
+      <a href="#" target="_blank">Magic Bus Siglo XXI y ½ nº1</a><br>
+      Doneztebe, Mayo 2026<br>——<br>
       Luis Beltza<br>
       editor
     </div>
@@ -631,8 +639,223 @@
 
 
     <!-- POST: BALLENEROS VASCOS -->
+
+
+    <!-- POST: HACHA VASCA -->
+    <article class="block block-white" id="hacha-vasca" data-secciones="historia euskal-herria">
+      <div class="block-tag">Historia · Euskal Herria · Norteamérica · Siglo XV</div>
+      <h2 class="headline-xl">EL HACHA VASCA EN TERRITORIO H<span style="color:#b01a1a;">UR</span>ÓN. ANTES DE COLÓN.</h2>
+
+      <img src="https://live.staticflickr.com/65535/55240945551_b16fc9e1a8_b.jpg" alt="Hacha vasca" class="img-full" style="margin:1rem 0; filter:contrast(1.1);">
+      <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· El hacha forjada en una ferrería gipuzkoana que unió el destino arqueológico de dos pueblos indígenas ·</p>
+
+      <div class="body-text">
+        Año 1500. En el yacimiento de Mantle — Whitchurch-Stouffville, a las afueras de lo que hoy es Toronto — una ciudad h<span style="color:#b01a1a;">ur</span>ona de 2.000 personas vive dentro de una triple empalizada. Noventa casas comunales. Campos de maíz que se extienden dos kilómetros en todas las direcciones. Una metrópolis. El arqueólogo Ron Williamson excava y encuentra algo que no debería estar ahí: un hacha de hierro forjada en Euskal Herria.
+      </div>
+
+      <div class="body-text">
+        El objeto más antiguo de hierro europeo encontrado en Norteamérica. Y no apareció en la costa — apareció a <strong style="color:#333;">más de 1.500 kilómetros</strong> tierra adentro, en los Grandes Lagos, donde ningún europeo llegaría oficialmente hasta 1615. El descubrimiento destrozó la línea temporal de la historia oficial con la misma precisión con que un hacha parte madera.
+      </div>
+
+      <div class="pullquote" style="color:#333;">
+        "Parece que cambia las reglas del juego en todos los sentidos."
+        <cite>— Dr. Ron Williamson · Arqueólogo · Universidad de Toronto</cite>
+      </div>
+
+      <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/4Y4IZADV3JDOLIJIGP7XLM6PQ4.jpg" alt="Yacimiento Mantle" class="img-full" style="margin:2rem 0 0.4rem 0; filter:contrast(1.05);">
+      <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· Yacimiento Mantle · Whitchurch-Stouffville · Ontario · La mayor ciudad h<span style="color:#b01a1a;">ur</span>ona conocida · c. 1500 ·</p>
+
+
+      <div class="body-text">
+        La historia oficial decía: el primer contacto entre europeos y h<span style="color:#b01a1a;">ur</span>ones fue en 1615, cuando el explorador francés Étienne Brûlé llegó al lago Ontario. El hacha dice: no. Dice que un siglo antes, un arrantzale vasco entró en comercio — o en amistad, o en encuentro — con el pueblo h<span style="color:#b01a1a;">ur</span>ón. Lo suficientemente lejos de la costa como para que el hacha hubiera viajado de mano en mano a través de rutas de comercio indígenas que cruzaban el continente. Los h<span style="color:#b01a1a;">ur</span>ones la conservaron. La enterraron. Trataron el hierro vasco como lo que era: algo extraordinario.
+      </div>
+
+      <div class="body-text">
+        <strong style="color:#333;">¿Quiénes eran esos vascos?</strong> No eran España — España como estado no existía aún. El Reino de Navarra era independiente. Granada seguía siendo árabe. Aquellos hombres hablaban euskera, se regían por sus propios f<span style="color:#b01a1a;">ue</span>ros y parliamentos, y llegaron al Atlántico Norte siguiendo ballenas y bacalao. Llegaron antes de 1492. La ferrería de Zerain (Gipuzkoa) — hoy convertida en el Centro de Visitantes Aizpitta — fue identificada como lugar de fabricación de hachas con la misma marca que la encontrada en Mantle. Los arqueólogos canadienses viajaron hasta allí. Metieron la mano en el mismo fuego.
+      </div>
+
+
+      <div style="display:flex; gap:2rem; margin:2rem 0; align-items:flex-start;">
+        <div style="flex:0 0 48%;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ436z-9Uhvoa2QetmMCb7o1J6OCDgu-BwMvQ&s" alt="Hacha vasca de hierro" style="width:100%; display:block; filter:contrast(1.1);">
+          <img src="https://i.pinimg.com/originals/12/c8/54/12c854e0cdf9f826f86b0ec4acb2d8a7.jpg" alt="Arrantzales vascos" style="width:100%; display:block; filter:contrast(1.1); margin-top:2rem;">
+        </div>
+        <div style="flex:1; font-family:'Courier Prime',monospace; font-size:1rem; line-height:1.9; color:#333;">
+          <p>Los H<span style="color:#b01a1a;">ur</span>ones — o H<span style="color:#b01a1a;">ur</span>on-Wendat — eran una confederación de pueblos iroqueses que habitaban la región de los Grandes Lagos desde tiempos inmemoriales. Su nombre propio, <em>Wendat</em>, significa "habitantes de la isla" o "de la península". El término "H<span style="color:#b01a1a;">ur</span>ón" lo acuñaron los franceses: viene de <em>h<span style="color:#b01a1a;">ur</span>e</em>, cabeza hirsuta.</p>
+          <p style="margin-top:1rem;">En el siglo XV, cuando el hacha vasca llegó a sus manos a través de rutas comerciales indígenas que cruzaban el continente, los H<span style="color:#b01a1a;">ur</span>ones vivían en ciudades de varios miles de personas, cultivaban maíz, frijoles y calabaza, y mantenían alianzas diplomáticas complejas con otros pueblos. No eran tribus nómadas — eran civilizaciones.</p>
+        </div>
+      </div>
+
+      <div class="pullquote" style="color:#333;">
+        "En aquellas remotas aguas me encontré a mil vascos pescando bacalao."
+        <cite>— Jacques Cartier · Explorador francés · Primer viaje a Terranova · Siglo XVI</cite>
+      </div>
+
+      <div class="body-text">
+        Mil vascos. Cartier no salía de su asombro. Para cuando él llegó, los arrantzales del Cantábrico llevaban décadas operando en Terranova. Factorías en la costa, hornos para fundir aceite de ballena, redes de comercio que se extendían tierra adentro. Una de las primeras redes industriales en suelo americano — sin que nadie en Sevilla firmara ningún documento de exploración.
+      </div>
+
+      <div class="body-text">
+        El documental <em style="color:#333;">The Curse of the Axe</em> — La Maldición del Hacha — se estrenó en el Royal Ontario Museum y fue narrado por <strong style="color:#333;">Robbie Robertson</strong>, de The Band, nativo canadiense descendiente del pueblo mohawk. No es un detalle menor: el hombre que narra la historia de un hacha vasca en territorio h<span style="color:#b01a1a;">ur</span>ón es descendiente de los mismos pueblos que vivían en ese continente cuando llegaron los arrantzales. El círculo se cierra con una voz que tiene las dos memorias.
+      </div>
+
+      <div class="body-text">
+        La historia no empezó en 1492. No empezó en 1615. Empezó mucho antes, en el mar, con hombres que no tenían bandera de nación porque su nación aún no había sido inventada. Solo tenían el mar, el hierro y el euskera. Y llegaron primero.
+      </div>
+
+      <div class="olivetti" style="padding-top:1.2rem;">
+        <span style="position:absolute; top:-0.6rem; left:1rem; background:var(--black); padding:0 0.5rem; font-size:0.72rem; letter-spacing:0.3em; color:#f2ede6; text-transform:uppercase; font-family:'Courier Prime',monospace;">FUENTE</span>
+        Dr. Ron Williamson · Archaeological Services Inc. · Universidad de Toronto<br>
+        <em>Curse of the Axe</em> · Yap Films · History Television Canada · Royal Ontario Museum<br>
+        AboutBasqueCountry.eus · Nabarralde · Noticias de Gipuzkoa · Deia<br>
+        Centro de Visitantes Aizpitta · Ferrería de Zerain · Gipuzkoa
+      </div>
+
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
+      <div class="comments">
+        <div class="comments-label">COMENTARIOS</div>
+        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
+          <input type="hidden" name="_subject" value="Magic Bus — Comentario: HACHA VASCA EN TERRITORIO HURÓN">
+          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
+          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
+          <textarea name="message" placeholder="Tu comentario..." required></textarea>
+          <button type="submit">ENVIAR</button>
+          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
+        </form>
+      </div>
+    </article>
+
+    <div id="marquee-principal" class="marquee-bar">
+      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
+    </div>
+
+    <!-- POST: LINTON KWESI JOHNSON -->
+    <article class="block block-white" id="lkj" data-secciones="musica politica poesia">
+      <div class="block-tag">Música · Dub Poetry · Resistencia</div>
+      <h2 class="headline-xl">LINTON KWESI JOHNSON. LA PALABRA COMO ARMA.</h2>
+      <div class="byline">LKJ Records · <a href="https://lintonkwesijohnson.co.uk/" target="_blank" style="color:var(--red);">lintonkwesijohnson.co.uk</a></div>
+
+      <!-- FOTO PRINCIPAL -->
+      <img src="https://i.guim.co.uk/img/media/1f3556c6b74e6786b76b04e95108c3296185f499/0_0_3542_2125/master/3542.jpg?width=1200&quality=85&auto=format&fit=max&s=3f1afa6db1657a38ae4d17b085e19f01" alt="Linton Kwesi Johnson" class="img-full" style="margin:1rem 0; filter:contrast(1.05);">
+      <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· Linton Kwesi Johnson · El padre de la Dub Poetry · Brixton, Londres ·</p>
+
+      <div class="body-text">
+        Jamaica, 1952. Londres, 1961. Nueve años, maleta, Brixton. La Inglaterra de posguerra necesitaba mano de obra y la fue a buscar al Caribe. La generación Windrush llegó con pasaporte británico y encontró carteles en las pensiones: <em style="color:#333;">No blacks, no dogs, no Irish.</em> El pequeño Linton lo vio todo. Lo procesó. Y cuando encontró la forma de responder, eligió la palabra sobre el ritmo del dub. Eso lo cambió todo.
+      </div>
+
+      <!-- FOTO 2 -->
+      <div class="body-text">
+        Panteras Negras británicos, Brixton, años 70. LKJ no llegó a la política desde la teoría — llegó desde la calle. El Black Parents Movement, el Race Today Collective, la lucha contra la ley <em style="color:#333;">sus</em> que permitía a la policía detener a cualquier joven negro por el simple hecho de existir en el espacio público. Todo eso entró en sus versos. En patois jamaicano. En el idioma que el sistema intentaba hacer invisible.
+      </div>
+
+      <div class="pullquote">
+        Di sus laws, dem really show<br>
+        Dat blacks can nevah get a fair go<br>
+        Inna Inglan.
+        <cite>— Linton Kwesi Johnson · <em>Sonny's Lettah (Anti-Sus Poem)</em> · 1979</cite>
+      </div>
+
+      <div class="body-text">
+        <strong>Sonny's Lettah</strong> — una carta desde la cárcel de un chico a su madre. La policía para a Sonny y a su hermano en la calle. Sin motivo. Solo por ser negros. Su hermano forcejea. Le dan una paliza. Sonny intenta defenderle y acaba en chirona. La carta es tierna, doméstica, íntima — y por eso destroza más que cualquier panfleto. LKJ entendió algo que los manifiestos no entienden: la empatía va más lejos que la denuncia.
+      </div>
+
+      <!-- FOTO 3 -->
+      <div class="photo-grid-2" style="margin:1.5rem 0;">
+        <div>
+          <img src="https://www.udiscovermusic.com/wp-content/uploads/2023/10/linton-kwesi.jpg" alt="LKJ - uDiscover Music" style="width:100%; display:block; filter:contrast(1.05);">
+          <p class="caption">· LKJ · uDiscover Music ·</p>
+        </div>
+        <div>
+          <img src="https://www.bigissue.com/wp-content/uploads/2023/04/1559-YS_GettyImages-76056712.jpg" alt="LKJ - The Big Issue" style="width:100%; display:block; filter:contrast(1.05);">
+          <p class="caption">· LKJ · The Big Issue · Getty Images ·</p>
+        </div>
+      </div>
+
+      <div class="body-text">
+        <strong>Inglan Is a Bitch</strong> — el himno de la desilusión. El inmigrante que llegó creyendo en el sueño imperial y encontró fábricas, racismo institucional y sueldos de miseria. No hay rabia desordenada aquí — hay un diagnóstico frío, preciso, demoledor. <em style="color:#333;">"Inglan is a bitch / Dere's no escapin it."</em> Seis palabras que resumen lo que ningún informe del Parlamento británico se atrevió a decir.
+      </div>
+
+      <div class="pullquote">
+        Brixton, 1981. Cuatro días de <span style="color:#333;">dist</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">bios</span>. La comunidad negra se hartó. LKJ no lo llamó <span style="color:#333;">dist</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">bio</span>. Lo llamó <span style="color:#333;">ins</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">rección</span>.
+        <cite>— <em>Di Great Insohreckshan</em> · Forces of Victory · LKJ Records</cite>
+      </div>
+
+      <div class="body-text">
+        <strong>Di Great Insohreckshan</strong> — la única obra de LKJ con tono celebratorio. Brixton arde. La policía retrocede. Por primera vez en décadas, la comunidad siente que puede ganar. No es violencia — es empoderamiento colectivo documentado en verso. Mientras los periódicos hablaban de vandalismo, LKJ hablaba de historia.
+      </div>
+
+      <!-- PORTADA ÁLBUM -->
+      <div class="pullquote" style="color:#333; border-left-color:#b01a1a;">
+        <em>Cinco noches sangrientas<br>
+        Loc<span style="color:#b01a1a;">ur</span>a, loc<span style="color:#b01a1a;">ur</span>a<br>
+        Loc<span style="color:#b01a1a;">ur</span>a atornillada a las cabezas de los rebeldes<br>
+        La amarg<span style="color:#b01a1a;">ur</span>a s<span style="color:#b01a1a;">ur</span>ge como un corazón llameante<br>
+        Cristales rotos, ritual de sangre y fuego<br>
+        Servido por una lucha cruel<br>
+        Cinco noches de horror sangriento<br>
+        Cristales rotos, hojas frías afiladas como los ojos del odio<br>
+        Y el cuchillo golpea<br>
+        Es guerra entre rebeldes<br>
+        Guerra loca, loca</em>
+        <cite>— Linton Kwesi Johnson · <em>Five Nights of Bleeding</em> · Dread Beat An' Blood · 1978</cite>
+      </div>
+
+      <img src="https://img.over-blog-kiwi.com/2/47/54/03/20191003/ob_2a66e8_lkj-dread-beat-blood-translation-of-fi.jpg" alt="Dread Beat An' Blood LP" class="img-full" style="margin:1rem 0; filter:contrast(1.05);">
+      <p class="caption" style="text-align:center; margin-bottom:0.5rem;">· Dread Beat An' Blood · 1978 · Virgin Front Line · El megáfono del Street Dub Poetry ·</p>
+      <div style="font-family:'Courier Prime',monospace; font-size:1.05rem; color:#333; line-height:2; margin-bottom:1.5rem; padding:0 0.2rem;">
+        <p style="margin-bottom:0.3rem;"><strong style="color:#333;">Discografía esencial:</strong></p>
+        <p style="margin-bottom:0.2rem;">· <em>Dread Beat An' Blood</em> (1978)</p>
+        <p style="margin-bottom:0.2rem;">· <em>Forces of Victory</em> (1979)</p>
+        <p style="margin-bottom:0.2rem;">· <em>Bass Cult<span style="color:#b01a1a;">ur</span>e</em> (1980)</p>
+        <p style="margin-bottom:0.2rem;">· <em>Tings an' Times</em> (1991)</p>
+        <p style="margin-bottom:0;">Producidos casi todos con <strong style="color:#333;">Dennis Bovell</strong> — el arquitecto del sonido que convirtió la poesía en dub.</p>
+      </div>
+
+      <!-- FOTO CHATHAM HOUSE -->
+      <div class="body-text">
+        En 2002, Penguin Modern Classics lo incluyó en su colección. Segundo poeta vivo en esa serie. El único autor negro. La misma editorial que publica a Keats, a Orwell, a Borges. No lo celebró demasiado — siguió gestionando LKJ Records, su sello independiente, sin intermediarios, sin que nadie le diluya el mensaje. Eso también es política.
+      </div>
+
+      <!-- FOTO NPG LARGA -->
+      <img src="https://www.npg.org.uk/assets/image-cache/long/mw59318/Linton-Kwesi-Johnson.36ad223f.jpg" alt="LKJ - National Portrait Gallery" class="img-full" style="margin:1rem 0; filter:contrast(1.05);">
+      <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· LKJ · National Portrait Gallery · Retrato oficial ·</p>
+
+      <div class="body-text">
+        Hoy LKJ tiene 73 años y sigue participando en foros internacionales de poesía y derechos humanos. Su pregunta actual es la misma de siempre, reformulada: ¿son suficientes los movimientos de identidad para enfrentarse a las fuerzas del mercado, o necesitamos volver a la política de clase? La respuesta está en sus discos. Siempre estuvo.
+      </div>
+
+      <div class="olivetti" style="padding-top:1.2rem;">
+        <span style="position:absolute; top:-0.6rem; left:1rem; background:var(--black); padding:0 0.5rem; font-size:0.72rem; letter-spacing:0.3em; color:#f2ede6; text-transform:uppercase; font-family:'Courier Prime',monospace;">FUENTE</span>
+        Wikipedia · Social Interest Group · Newcastle University · Festival Internacional de Poesía de Medellín<br>
+        Web oficial: <a href="https://lintonkwesijohnson.co.uk/" target="_blank" style="color:var(--red);">lintonkwesijohnson.co.uk</a> · LKJ Records
+      </div>
+
+      <img src="https://www.chathamhouse.org/sites/default/files/styles/12_6_media_huge/public/2023-03/11%20Writing%20Reggae%2002%20copy%20this%20one%20this%20one.jpg?h=e695fe12&itok=HTKOCNMk" alt="LKJ - Chatham House" class="img-full" style="margin:1.5rem 0 0.4rem 0; filter:contrast(1.05);">
+      <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· LKJ · Chatham House · Writing Reggae ·</p>
+
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
+      <div class="comments">
+        <div class="comments-label">COMENTARIOS</div>
+        <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
+          <input type="hidden" name="_subject" value="Magic Bus — Comentario: LINTON KWESI JOHNSON">
+          <input type="text" name="nick" placeholder="Tu nombre / nick" required>
+          <input type="email" name="email" placeholder="Tu email (no se publica)" required>
+          <textarea name="message" placeholder="Tu comentario..." required></textarea>
+          <button type="submit">ENVIAR</button>
+          <div class="form-ok">¡Eskerrik asko! · Comentario enviado.</div>
+        </form>
+      </div>
+    </article>
+    <div style="height:clamp(0.5rem,2vw,1.75rem); background:#0a0a0a;"></div>
+
     <div id="historia" style="position:relative; top:-90px; visibility:hidden;"></div>
-    <article class="block block-white" id="balleneros">
+    <article class="block block-white" id="balleneros" data-secciones="historia euskal-herria">
       <div class="block-tag">Historia · Mar Cantábrico · Islandia 1615</div>
       <h2 class="headline-xl">LA MATANZA DE LOS BALLENEROS VASCOS EN LOS FIORDOS DE ISLANDIA.</h2>
       <div class="byline">Álvaro Arbina · <a href="https://www.instagram.com/alvaroarbina/" target="_blank" style="color:var(--red);">@alvaroarbina</a></div>
@@ -644,7 +867,7 @@
       </div>
 
       <div class="body-text">
-        En el confín septentrional del mundo conocido, donde los fiordos recortan con severa majestuosidad la costa occidental de Islandia, tuvo lugar en el año de 1615 un suceso tan cruel como olvidado, una mancha indeleble en la historia del Atlántico Norte. Allí, en aquel páramo de hielo y escollos, tres embarcaciones vascas, comandadas por Tellería, Villafranca y Agu<span style="color:#b01a1a;">ir</span>re —provenientes del corazón del Cantábrico, c<span style="color:#b01a1a;">ur</span>tidas en mil mares y dedicadas a la noble labor de la caza de la ballena— hallaron su infort<span style="color:#b01a1a;">u</span>nio. Una tormenta brutal, desatada con la f<span style="color:#b01a1a;">ur</span>ia de los dioses nórdicos, las precipitó contra la costa, convirtiéndolas en despojos de madera y hierro que se mecían, inútiles, en la espuma polar.
+        En el confín septentrional del mundo conocido, donde los fiordos recortan con severa majestuosidad la costa occidental de Islandia, tuvo lugar en el año de 1615 un suceso tan cruel como olvidado, una mancha indeleble en la historia del Atlántico Norte. Allí, en aquel páramo de hielo y escollos, tres embarcaciones vascas, comandadas por Tellería, Villafranca y Aguirre —provenientes del corazón del Cantábrico, c<span style="color:#b01a1a;">ur</span>tidas en mil mares y dedicadas a la noble labor de la caza de la ballena— hallaron su infortunio. Una tormenta brutal, desatada con la f<span style="color:#b01a1a;">ur</span>ia de los dioses nórdicos, las precipitó contra la costa, convirtiéndolas en despojos de madera y hierro que se mecían, inútiles, en la espuma polar.
       </div>
 
       <div class="body-text">
@@ -656,7 +879,7 @@
       </div>
 
       <div class="pullquote">
-        Uno a uno fueron cazados. Algunos m<span style="color:#b01a1a;">ur</span>ieron mientras dormían, cobijados entre rocas; otros fueron atrapados en los valles, implorando auxilio en una lengua que nadie allí quiso comprender. Ninguno sobrevivió.
+        Uno a uno fueron cazados. Algunos <span style="color:#333;">m</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">ieron</span> mientras dormían, cobijados entre rocas; otros fueron atrapados en los valles, implorando auxilio en una lengua que nadie allí quiso comprender. Ninguno sobrevivió.
         <cite>— Álvaro Arbina</cite>
       </div>
 
@@ -676,6 +899,10 @@
         Penguin Libros: <a href="https://www.penguinlibros.com/es/4098-alvaro-arbina" target="_blank" style="color:var(--amber);">penguinlibros.com</a>
       </div>
 
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
         <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
@@ -689,15 +916,11 @@
       </div>
     </article>
 
-    <div id="marquee-principal" class="marquee-bar">
-      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
-    </div>
-
     <!-- POST: JÚPITER FC -->
-    <article class="block block-white" id="jupiter">
+    <article class="block block-white" id="jupiter" data-secciones="historia politica futbol">
       <div class="block-tag">Política · Fútbol · Anarquismo</div>
       <h2 class="headline-xl">JÚPITER FC. EL EQUIPO QUE ESCONDÍA ARMAS EN LOS BALONES.</h2>
-      <div class="byline">Luis Beltza · Fuente: Vice Sports / Archivo Histórico del Poblenou</div>
+      <div class="byline">Fuente: Vice Sports / Archivo Histórico del Poblenou</div>
       <img src="https://live.staticflickr.com/65535/55238471806_c68314ffb1_b.jpg" alt="Júpiter FC" class="img-full" style="margin:1rem 0; filter:contrast(1.1);">
       <p class="caption" style="text-align:center; margin-bottom:1rem;">· Júpiter FC · Poblenou, Barcelona · © Archivo Histórico del Poblenou ·</p>
       <div style="margin:1.5rem 0;">
@@ -727,7 +950,7 @@
       </div>
 
       <div class="pullquote">
-        Desde el campo del Júpiter salieron dos camiones para combatir la ins<span style="color:#b01a1a;">ur</span>rección fascista el 19 de julio de 1936.
+        Desde el campo del Júpiter salieron dos camiones para combatir la <span style="color:#333;">ins</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">rección</span> fascista el 19 de julio de 1936.
         <cite>— Agustí Guillamón, historiador</cite>
       </div>
 
@@ -748,7 +971,7 @@
       </div>
 
       <div class="pullquote">
-        <strong>Rastros de Júpiter</strong> — Doneztebe (Santesteban), Nafarroa. Cada quinto sábado de mes en <strong>Ultramarinos Parroquia 13</strong>, C/ Parroquia 13. Mercadillo de brocante, antigüedades, coleccionismo y artesanía. Música en directo — sesiones DJ, actuaciones. Vermú al estilo Parroquia 13. Entrada libre. El espíritu del Manchester catalán aterriza en el Bidasoa. Una iniciativa de <strong>Beltza Records · Beltza Experience</strong> para dinamizar la vida cult<span style="color:#b01a1a;">ur</span>al de la zona con propuestas que mezclan lo retro, lo artístico y lo social. Como el Júpiter: obrero, festivo y con las ideas muy claras.
+        <strong>Rastros de Júpiter</strong> — Doneztebe (Santesteban), Nafarroa. Cada quinto sábado de mes en <strong>Ultramarinos Parroquia 13</strong>, C/ Parroquia 13. Mercadillo de brocante, antigüedades, coleccionismo y artesanía. Música en directo — sesiones DJ, actuaciones. Vermú al estilo Parroquia 13. Entrada libre. El espíritu del Manchester catalán aterriza en el Bidasoa. Una iniciativa de <strong>Beltza Records · Beltza Experience</strong> para dinamizar la vida <span style="color:#333;">cult</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">al</span> de la zona con propuestas que mezclan lo retro, lo artístico y lo social. Como el Júpiter: obrero, festivo y con las ideas muy claras.
         <cite>— <a href="https://www.instagram.com/beltzaexperience/" target="_blank" style="color:var(--amber);">@beltzaexperience</a> · C/ Parroquia 13 · Doneztebe · Beltza Experience</cite>
       </div>
 
@@ -760,6 +983,10 @@
         dialectik-football.info · <em>L'apport du CE Júpiter aux anarchistes barcelonais · juillet 1936</em>
       </div>
 
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
         <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
@@ -774,7 +1001,7 @@
     </article>
 
 
-    <article class="block block-white" id="digitalismo">
+    <article class="block block-white" id="digitalismo" data-secciones="digitalismo angustia">
       <div class="block-tag">Digitalismo · Sistema Mundo</div>
       <h2 class="headline-xl">PONZOÑA DIGITAL EN UN SISTEMA MUNDO DIGITALISTA.</h2>
       <div class="byline">Luis Beltza</div>
@@ -792,11 +1019,15 @@
         La tecnología siempre ha sido una herramienta del ser humano creada por su capacidad ne<span style="color:#b01a1a;">ur</span>onal desde la edad de piedra. Antes esa piedra cortaba las pieles que abrigaban nuestra piel y ahora hablamos de temas profundos — o no tanto — con un trozo de silicio rodeado de computación.
       </div>
       <div class="pullquote">
-        El ser humano, por el momento, es el propósito del Universo. Aquellos que bajo la luz de la luna ven la luz de las estrellas que nos vieron nacer cuando ellas m<span style="color:#b01a1a;">ur</span>ieron y se asombran de semejante majestuosidad.
+        El ser humano, por el momento, es el propósito del Universo. Aquellos que bajo la luz de la luna ven la luz de las estrellas que nos vieron nacer cuando ellas <span style="color:#333;">m</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">ieron</span> y se asombran de semejante majestuosidad.
         <cite>— Luis Beltza</cite>
       </div>
       <div class="body-text">
         Lo importante no es morir o vivir, lo importante es elegir entre manzana o edén. Ave Silicio, los que vamos a morir te saludamos.
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -814,7 +1045,7 @@
     <!-- MARQUEE -->
 
     <!-- POST: KAREN Y LOS REMEDIOS -->
-    <article class="block block-white" id="karen">
+    <article class="block block-white" id="karen" data-secciones="musica">
       <div class="block-tag">Música · Cumbia Amazónica</div>
       <h2 class="headline-xl">KAREN Y LOS REMEDIOS.</h2>
       <div class="byline">Luis Beltza</div>
@@ -824,7 +1055,7 @@
         Estos son los nuevos ritmos de AMÉRICA y <a href="https://www.beltzarecords.com" target="_blank" style="color:inherit; font-weight:700;">Beltza Records</a> no está al margen. Pasen y vean, perreen la nueva CUMBIA AMAZÓNICA.
       </div>
       <div class="pullquote">
-        Me inclino hacia rosas / cuando llegó bailo / veo a las muchachas / le doy un besito. Entre más osc<span style="color:#b01a1a;">ur</span>a cae la noche / bailo despacio / me ilumina la melancolía.
+        Me inclino hacia rosas / cuando llegó bailo / veo a las muchachas / le doy un besito. Entre más <span style="color:#333;">osc</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">a</span> cae la noche / bailo despacio / me ilumina la melancolía.
         <cite>— <a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:inherit; text-decoration:none;">Karen y los Remedios</a> · Las Muchachas</cite>
       </div>
       <div style="margin:1.5rem 0;">
@@ -835,6 +1066,10 @@
           </div>
         </a>
         <p class="caption" style="text-align:center; margin-top:0.4rem;">· <a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:inherit; text-decoration:none;">Karen y los Remedios</a> · <a href="https://www.youtube.com/watch?v=oVoDGZ20wVQ" target="_blank" style="color:inherit; text-decoration:none;">YouTube</a> ·</p>
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -852,7 +1087,7 @@
     <!-- MARQUEE -->
 
     <!-- POST: SATÁN -->
-    <article class="block block-white" id="satan">
+    <article class="block block-white" id="satan" data-secciones="musica politica">
       <div class="block-tag">Política · Música · Afghan Whigs</div>
       <h2 class="headline-xl">SATÁN LEVANTANDO CON SU MALDAD LA CIVILIZACIÓN PIRAMIDAL.</h2>
       <div class="byline">Luis Beltza</div>
@@ -864,6 +1099,10 @@
       <div class="pullquote">
         Criminal, criminal. Ver el cuchillo en el agua. Esta electricidad era todo lo que quería, ahora me está matando. Algunos lo llaman químico, yo lo llamo agridulce.
         <cite>— <a href="https://theafghanwhigs.bandcamp.com/album/in-spades" target="_blank" style="color:inherit; text-decoration:none;">Afghan Whigs</a> · Demon in Profile · In Spades · 2017</cite>
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -881,14 +1120,14 @@
     <!-- MARQUEE -->
 
     <!-- POST: ETIOPÍA / ANTIFASCISMO -->
-    <article class="block block-white" id="politica">
+    <article class="block block-white" id="politica" data-secciones="politica black-power">
       <div class="block-tag">Política · Antifascismo</div>
       <h2 class="headline-xl"><a href="https://ctxt.es/es/20200701/Politica/32908/Molly-Crabapple-The-Baffler-Etiopia-colonialismo-Antifascismo-Mussolini-Chicago-manifestaciones-EEUU.htm?fbclid=IwY2xjawQrillleHRuA2FlbQIxMABicmlkETFLcUhhNGt6dnJ0RGtkem1uc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvBaIgHtDabyKkTGYOrOrfW8cz_6M5Msu8n6qIECe3GrcTaz1wK3Q-TMi2v-_aem_ELDa3TIDb5nw9X9itxxdhg" target="_blank" style="color:inherit; text-decoration:none;">La ignorada vanguardia antifascista negra de EE.UU.</a></h2>
       <div class="byline">Molly Crabapple · The Baffler · 24/07/2020</div>
       <div class="caption">En 1935, panafricanistas, comunistas, feligreses y sindicalistas afroamericanos se opusieron a la invasión de Etiopía por Mussolini. Fueron los primeros en ver la conexión entre el imperialismo e<span style="color:#b01a1a;">ur</span>opeo y la violencia fascista.</div>
       <img src="https://live.staticflickr.com/65535/55158968742_f71e0b567f_h.jpg" alt="Ethiopia resistencia" class="img-full" style="margin:1rem 0;">
       <div class="pullquote">
-        En 1934 Etiopía era uno de los dos únicos países africanos que nunca habían sido colonizados por E<span style="color:#b01a1a;">ur</span>opa, aunque no fue por falta de intentos.
+        En 1934 Etiopía era uno de los dos únicos países africanos que nunca habían sido colonizados por <span style="color:#333;">E</span><span style="color:#b01a1a;">ur</span><span style="color:#333;">opa</span>, aunque no fue por falta de intentos.
         <cite>— Molly Crabapple · The Baffler</cite>
       </div>
       <div class="pullquote">
@@ -903,6 +1142,10 @@
         Y hasta que el régimen innoble e infeliz que aguantan nuestros hermanos de Angola, en Mozambique, Sudáfrica, esclavitud infrahumana, hayan sido derrocados, completamente destruidos, bueno, en todas partes habrá guerra.<br><br>
         Y hasta ese día, el continente africano no conocerá la paz. Los africanos lucharemos, lo encontramos necesario, y sabemos que ganaremos.
         <cite>— Bob Marley · War · Rastaman Vibration · 1976</cite>
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -920,7 +1163,7 @@
     <!-- MARQUEE -->
 
     <!-- POST: FREE HUEY -->
-    <article class="block block-white" id="free-huey">
+    <article class="block block-white" id="free-huey" data-secciones="politica black-power musica">
       <div class="block-tag">Política · Oakland 1968</div>
       <h2 class="headline-xl">FREE HUEY.</h2>
       <div class="caption">Oakland, California · 1968 · Free Huey Rally · Black Panther Party · Huey Must Be Set Free</div>
@@ -957,6 +1200,10 @@
       </div>
       <img src="https://live.staticflickr.com/65535/55163473156_2fd667b03b_o.jpg" alt="Free Huey Rally 1968" class="img-full" style="margin:1rem 0;">
       <p class="caption" style="text-align:center; margin-bottom:1rem;">· Free Huey Rally · West Oakland · 1968 · Fotografías: Ruth-Marion Baruch · UC Santa Cruz University Library ·</p>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
         <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
@@ -973,7 +1220,7 @@
 
 
     <!-- POST: ELECTRO CUMBIA -->
-    <article class="block block-white" id="musica">
+    <article class="block block-white" id="musica" data-secciones="musica">
       <div class="block-tag">Música · Nuevo Punk</div>
       <h2 class="headline-xl">ELECTRO CUMBIA.</h2>
       <div class="byline">Luis Beltza</div>
@@ -985,6 +1232,10 @@
       <div class="pullquote">
         Si es que mañana muero / no le tengo miedo / pues soy mujer y llevo / el dolor adentro
         <cite>— <a href="https://lidopimienta.bandcamp.com/merch/lido-pimienta-2025-calendar-never-give-up-nunca-te-rindas" target="_blank" style="color:inherit; text-decoration:none;">Lido Pimienta</a> · Nada</cite>
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1000,7 +1251,7 @@
     </article>
 
     <!-- POST: SPACE IS THE PLACE -->
-    <article class="block block-white" id="cosmos">
+    <article class="block block-white" id="cosmos" data-secciones="cosmos musica comics">
       <div class="block-tag">Cosmos · Silver S<span style="color:#b01a1a;">ur</span>fer</div>
       <h2 class="headline-xl">SPACE IS THE PLACE.</h2>
       <div class="caption">Galactus &amp; The Silver S<span style="color:#b01a1a;">ur</span>fer · Jack Kirby</div>
@@ -1010,6 +1261,10 @@
       </div>
       <div class="body-text">
         Los Rastros de Júpiter. Space Is The Place. El árbol de Júpiter (Lagerstroemia indica) en el jardín de Parroquia 13. El planeta Júpiter como brújula. La música como nave.
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1027,7 +1282,7 @@
 
 
     <!-- POST: INNER VISIONS -->
-    <article class="block block-white" id="archivo">
+    <article class="block block-white" id="archivo" data-secciones="musica poesia cine literatura angustia">
       <div class="block-tag">Archivo · Referencias</div>
       <h2 class="headline-xl">INNER VISIONS.</h2>
       <div class="byline">Luis Beltza</div>
@@ -1040,6 +1295,10 @@
       </div>
       <div class="caption">First Blood · David Morrell · Fawcett Crest</div>
       <img src="https://live.staticflickr.com/65535/55159959368_01ba0b930e_h.jpg" alt="First Blood · David Morrell" class="img-full" style="margin:1rem 0;">
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+      </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
         <form class="comment-form" action="https://formspree.io/f/mnjgdgnw" method="POST" onsubmit="handleComment(event, this)">
@@ -1056,17 +1315,22 @@
 
 
     <!-- POST: SAFE FROM HARM -->
-    <article class="block block-white" id="safe-from-harm">
+    <article class="block block-white" id="safe-from-harm" data-secciones="musica poesia angustia">
       <div class="block-tag">Música · Massive Attack</div>
       <h2 class="headline-xl">SAFE FROM HARM.</h2>
       <div class="caption"><a href="https://www.massiveattack.co.uk/" target="_blank" style="color:inherit; text-decoration:none;">Massive Attack</a> with Shara Nelson · Blue Lines · 1991</div>
       <img src="https://live.staticflickr.com/65535/55159803941_b266e96b9e_b.jpg" alt="Massive Attack with Shara Nelson · Blue Lines · 1991" class="img-full" style="margin:1rem 0;">
       <div class="body-text">
         Vivimos tiempos difíciles para la salud mental, nuestras mentes son peligrosas y la farmacología encarcela nuestros más profundos sentimientos en bonitas cajas de metal, oxidadas en casas abandonadas. Sin escaleras al cielo. En la osc<span style="color:#b01a1a;">ur</span>idad de la noche no encontrarás el camino que conduzca a la c<span style="color:#b01a1a;">ur</span>ación, tierras lejanas ya olvidadas.
+        <span style="display:block; margin-top:0.8rem; font-family:'Courier Prime',monospace; font-size:0.88rem; font-style:italic; color:#555;">— Luis Beltza</span>
       </div>
       <div class="pullquote">
         Puedes liberar el mundo, puedes liberar mi mente / siempre y cuando mi bebé esté a salvo de todo daño esta noche
         <cite>— <a href="https://www.massiveattack.co.uk/" target="_blank" style="color:inherit; text-decoration:none;">Massive Attack</a> · Safe From Harm · 1991</cite>
+      </div>
+      <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
+        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1197,6 +1461,68 @@
       }
     }).catch(() => { btn.disabled = false; });
   }
+</script>
+<script>
+// BUSCADOR
+function buscarTexto(query) {
+  const q = query.toLowerCase().trim();
+  document.querySelectorAll('article').forEach(art => {
+    if (!q) {
+      art.style.display = '';
+    } else {
+      const txt = art.innerText.toLowerCase();
+      art.style.display = txt.includes(q) ? '' : 'none';
+    }
+  });
+  if (!q) {
+    document.querySelectorAll('.sec-link').forEach(a => a.classList.remove('activa'));
+    document.getElementById('sec-todas').classList.add('activa');
+  }
+}
+
+// CRONOLÓGICO / DIARIO
+let cronologico = false;
+function toggleOrden() {
+  cronologico = !cronologico;
+  const feed = document.querySelector('.feed');
+  const btn = document.getElementById('btnOrden');
+  const articles = Array.from(feed.querySelectorAll('article'));
+  articles.reverse().forEach(a => feed.appendChild(a));
+  btn.textContent = cronologico ? '⇄ DIARIO' : '⇄ CRONOLÓGICO';
+  // Recolocar marquee
+  const mq = document.getElementById('marquee-principal');
+  const visible = Array.from(feed.querySelectorAll('article')).find(a => a.style.display !== 'none');
+  if (mq && visible) visible.after(mq);
+}
+
+function filtrarSeccion(seccion) {
+  const articles = document.querySelectorAll('article');
+  const marquee = document.getElementById('marquee-principal');
+  const sepTop = document.querySelector('[id="marquee-movil-sep-top"]') || 
+                 document.querySelector('div[style*="background:#0a0a0a"]');
+
+  // Mostrar/ocultar artículos
+  let primerVisible = null;
+  articles.forEach(art => {
+    const secs = art.dataset.secciones || '';
+    const visible = seccion === 'todas' || secs.split(' ').includes(seccion);
+    art.style.display = visible ? '' : 'none';
+    if (visible && !primerVisible) primerVisible = art;
+  });
+
+  // Mover marquee después del primer artículo visible
+  if (marquee && primerVisible) {
+    primerVisible.after(marquee);
+  }
+
+  // Marcar sección activa en sidebar
+  document.querySelectorAll('.sec-link').forEach(a => a.classList.remove('activa'));
+  const active = document.getElementById('sec-' + seccion);
+  if (active) active.classList.add('activa');
+
+  // Scroll al inicio del feed
+  document.querySelector('.feed').scrollTop = 0;
+}
 </script>
 </body>
 </html>
