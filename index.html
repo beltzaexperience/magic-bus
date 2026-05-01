@@ -447,10 +447,27 @@
   @media (max-width: 1200px) {
     #ignicion-wrap > div { grid-template-columns: 1fr !important; }
     .sidebar { display: none; }
-    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; }
+    .sidebar.open { display: block; position: fixed; top: 0; left: 0; width: 80vw; height: 100vh; background: var(--black); z-index: 200; padding: 2rem 1.5rem; overflow-y:auto; }
     .feed { padding: 1.5rem 1rem; }
     .float-right { float: none; width: 100%; margin: 0 0 1.5rem; }
     .brand-slash { flex-wrap: wrap; gap: 0.5rem; }
+  }
+
+  @media (max-width: 700px) {
+    /* TOPBAND — apilar filas */
+    .topband table, .topband tr, .topband td { display: block !important; text-align: left !important; }
+    .topband td { display:block !important; padding: 0.2rem 0 !important; font-size: 0.72rem; letter-spacing: 0.1em; white-space:normal !important; text-align:left !important; }
+    /* FOTOS DÍPTICO — apilar en móvil */
+    .diptico-hurones { grid-template-columns: 1fr !important; }
+    .topband td a, .topband td span { font-size: 0.72rem; }
+    /* FOOTER — apilar */
+    footer table, footer tr, footer td { display: block !important; text-align: left !important; }
+    footer td { padding: 0.2rem 0 !important; font-size: 0.72rem; }
+    /* BRAND SLASH */
+    .brand-slash { padding: 0.5rem 1rem; }
+    .b-beltza, .b-exp { font-size: clamp(1.8rem, 8vw, 3rem); }
+    /* FEED */
+    .feed { padding: 1rem 0.8rem; }
   }
 </style>
 </head>
@@ -461,10 +478,10 @@
   <div class="topband">
     <table style="width:100%; border-collapse:collapse;">
       <tr>
-        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--white); white-space:nowrap;">
+        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--white);">
           BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
         </td>
-        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
+        <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right;">
           <a href="https://beltzaexperience.github.io/Manifiesto-Beltza/" target="_blank" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a>
           ·
           <a href="http://dubbeat.beltzarecords.com/" target="_blank" style="color:var(--amber);text-decoration:none;">DUB²BEAT</a>
@@ -544,29 +561,29 @@
 <!-- MARQUEE PORTADAS -->
 <div style="background:var(--black); border-bottom:2px solid var(--red); padding:0.6rem 0; overflow:hidden; white-space:nowrap; width:100%; max-width:100%;">
   <div style="display:inline-block; animation:marquee 20s linear infinite; will-change:transform;">
-    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
     <!-- repetición para loop continuo -->
-    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
-    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:150px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160217369_1b5fb11b3e_z.jpg" alt="Prince Phillip Mitchell" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55162102986_ffb3f7933a_o.jpg" alt="Mito y Comadre" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160214789_312e45c387_z.jpg" alt="Toquinho & Vinicius de Moraes" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55159072597_8784825757_c.jpg" alt="Extremadura" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160349815_ce1a636951_h.jpg" alt="Stiff Little Fingers" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160131403_871d823cc6_h.jpg" alt="Buho" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160214809_2634aedc51_h.jpg" alt="Karen y los Remedios" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55159962246_40965879e0_b.jpg" alt="Dillinger" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55160213413_8304f1509e_h.jpg" alt="Madness" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55162639962_44bf0b3b75_o.jpg" alt="Arturo Somohano" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
+    <img src="https://live.staticflickr.com/65535/55163786469_4d1d9cb992_o.jpg" alt="Anima Latina Vol.2" style="height:200px; width:auto; margin-right:1rem; vertical-align:middle; filter:contrast(1.1);">
   </div>
 </div>
 
@@ -576,13 +593,16 @@
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-inner">
+    <div style="text-align:right; margin-bottom:1rem;">
+      <button onclick="closeSidebar()" style="background:none; border:1px solid var(--red); color:var(--red); font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; padding:0.3rem 0.8rem; cursor:pointer;">✕ CERRAR</button>
+    </div>
     <div class="sidebar-label">Secciones</div>
 
     <!-- CRONOLÓGICO / DIARIO -->
-    <a id="btnOrden" href="#" onclick="toggleOrden(); return false;" style="display:block; font-family:'Bebas Neue',sans-serif; font-size:0.88rem; letter-spacing:0.2em; color:var(--red); text-decoration:none; padding:0.35rem 0; border-bottom:1px solid rgba(176,26,26,0.3); margin-bottom:0.3rem;">⇄ CRONOLÓGICO</a>
+    <a id="btnOrden" href="#" onclick="toggleOrden(); return false;" style="display:block; font-family:'Bebas Neue',sans-serif; font-size:1.05rem; letter-spacing:0.2em; color:var(--red); text-decoration:none; padding:0.35rem 0; border-bottom:1px solid rgba(176,26,26,0.3); margin-bottom:0.3rem;">⇄ CRONOLÓGICO</a>
 
     <!-- BUSCADOR -->
-    <input id="buscador" type="text" placeholder="Buscar en el fanzine..." oninput="buscarTexto(this.value)" style="width:100%; background:#111; border:1px solid #2a2a2a; color:var(--white); padding:0.4rem 0.6rem; font-family:'Courier Prime',monospace; font-size:0.78rem; outline:none; margin-bottom:0.8rem; display:block;">
+    <input id="buscador" type="text" placeholder="Buscar en el fanzine..." oninput="buscarTexto(this.value)" style="width:100%; background:#111; border:1px solid #2a2a2a; color:var(--white); padding:0.4rem 0.6rem; font-family:'Courier Prime',monospace; font-size:1.05rem; outline:none; margin-bottom:0.8rem; display:block;">
 
     <nav>
       <a href="#" onclick="filtrarSeccion('todas'); return false;" id="sec-todas" class="sec-link activa">· VER TODO</a>
@@ -712,15 +732,13 @@
       </div>
 
 
-      <div style="display:flex; gap:2rem; margin:2rem 0; align-items:flex-start;">
-        <div style="flex:0 0 48%;">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ436z-9Uhvoa2QetmMCb7o1J6OCDgu-BwMvQ&s" alt="Hacha vasca de hierro" style="width:100%; display:block; filter:contrast(1.1);">
-          <img src="https://i.pinimg.com/originals/12/c8/54/12c854e0cdf9f826f86b0ec4acb2d8a7.jpg" alt="Arrantzales vascos" style="width:100%; display:block; filter:contrast(1.1); margin-top:2rem;">
-        </div>
-        <div style="flex:1; font-family:'Courier Prime',monospace; font-size:1rem; line-height:1.9; color:#333;">
-          <p>Los H<span style="color:#b01a1a;">ur</span>ones — o H<span style="color:#b01a1a;">ur</span>on-Wendat — eran una confederación de pueblos iroqueses que habitaban la región de los Grandes Lagos desde tiempos inmemoriales. Su nombre propio, <em>Wendat</em>, significa "habitantes de la isla" o "de la península". El término "H<span style="color:#b01a1a;">ur</span>ón" lo acuñaron los franceses: viene de <em>h<span style="color:#b01a1a;">ur</span>e</em>, cabeza hirsuta.</p>
-          <p style="margin-top:1rem;">En el siglo XV, cuando el hacha vasca llegó a sus manos a través de rutas comerciales indígenas que cruzaban el continente, los H<span style="color:#b01a1a;">ur</span>ones vivían en ciudades de varios miles de personas, cultivaban maíz, frijoles y calabaza, y mantenían alianzas diplomáticas complejas con otros pueblos. No eran tribus nómadas — eran civilizaciones.</p>
-        </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0 1rem 0;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ436z-9Uhvoa2QetmMCb7o1J6OCDgu-BwMvQ&s" alt="Hacha vasca de hierro" style="width:100%; display:block; filter:contrast(1.1);">
+        <img src="https://i.pinimg.com/originals/12/c8/54/12c854e0cdf9f826f86b0ec4acb2d8a7.jpg" alt="Arrantzales vascos" style="width:100%; display:block; filter:contrast(1.1);">
+      </div>
+      <div style="font-family:'Courier Prime',monospace; font-size:1rem; line-height:1.9; color:#333; margin-bottom:1.5rem;">
+        <p>Los H<span style="color:#b01a1a;">ur</span>ones — o H<span style="color:#b01a1a;">ur</span>on-Wendat — eran una confederación de pueblos iroqueses que habitaban la región de los Grandes Lagos desde tiempos inmemoriales. Su nombre propio, <em>Wendat</em>, significa "habitantes de la isla" o "de la península". El término "H<span style="color:#b01a1a;">ur</span>ón" lo acuñaron los franceses: viene de <em>h<span style="color:#b01a1a;">ur</span>e</em>, cabeza hirsuta.</p>
+        <p style="margin-top:1rem;">En el siglo XV, cuando el hacha vasca llegó a sus manos a través de rutas comerciales indígenas que cruzaban el continente, los H<span style="color:#b01a1a;">ur</span>ones vivían en ciudades de varios miles de personas, cultivaban maíz, frijoles y calabaza, y mantenían alianzas diplomáticas complejas con otros pueblos. No eran tribus nómadas — eran civilizaciones.</p>
       </div>
 
       <div class="pullquote" style="color:#333;">
@@ -749,8 +767,8 @@
       </div>
 
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -764,6 +782,11 @@
         </form>
       </div>
     </article>
+
+    <div id="marquee-principal" class="marquee-bar">
+      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
+    </div>
+    <div style="height:clamp(0.5rem,2vw,1.75rem); background:#0a0a0a;"></div>
 
     <!-- POST: LINTON KWESI JOHNSON -->
     <article class="block block-white" id="lkj" data-secciones="musica politica poesia">
@@ -870,8 +893,8 @@
       <p class="caption" style="text-align:center; margin-bottom:1.5rem;">· LKJ · Chatham House · Writing Reggae ·</p>
 
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -887,10 +910,6 @@
     </article>
     <div style="height:clamp(0.5rem,2vw,1.75rem); background:#0a0a0a;"></div>
 
-
-    <div id="marquee-principal" class="marquee-bar">
-      <div class="marquee-inner">SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL · &nbsp;&nbsp;&nbsp; SOUL · FUNK · REGGAE · SKA · BLUES · JAZZ · PUNK · NEW WAVE · HIP HOP · BOSSA NOVA · DUB · CUMBIA · BRASIL · GARAGE · PSYCHEDELIC · KRAUTROCK · FREE JAZZ · NORTHERN SOUL ·</div>
-    </div>
 
     <div id="historia" style="position:relative; top:-90px; visibility:hidden;"></div>
     <article class="block block-white" id="balleneros" data-secciones="historia euskal-herria">
@@ -938,8 +957,8 @@
       </div>
 
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1022,8 +1041,8 @@
       </div>
 
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1064,8 +1083,8 @@
         Lo importante no es morir o vivir, lo importante es elegir entre manzana o edén. Ave Silicio, los que vamos a morir te saludamos.
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1106,8 +1125,8 @@
         <p class="caption" style="text-align:center; margin-top:0.4rem;">· <a href="https://karenylosremedios.bandcamp.com/" target="_blank" style="color:inherit; text-decoration:none;">Karen y los Remedios</a> · <a href="https://www.youtube.com/watch?v=oVoDGZ20wVQ" target="_blank" style="color:inherit; text-decoration:none;">YouTube</a> ·</p>
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1139,8 +1158,8 @@
         <cite>— <a href="https://theafghanwhigs.bandcamp.com/album/in-spades" target="_blank" style="color:inherit; text-decoration:none;">Afghan Whigs</a> · Demon in Profile · In Spades · 2017</cite>
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1182,8 +1201,8 @@
         <cite>— Bob Marley · War · Rastaman Vibration · 1976</cite>
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1239,8 +1258,8 @@
       <img src="https://live.staticflickr.com/65535/55163473156_2fd667b03b_o.jpg" alt="Free Huey Rally 1968" class="img-full" style="margin:1rem 0;">
       <p class="caption" style="text-align:center; margin-bottom:1rem;">· Free Huey Rally · West Oakland · 1968 · Fotografías: Ruth-Marion Baruch · UC Santa Cruz University Library ·</p>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1272,8 +1291,8 @@
         <cite>— <a href="https://lidopimienta.bandcamp.com/merch/lido-pimienta-2025-calendar-never-give-up-nunca-te-rindas" target="_blank" style="color:inherit; text-decoration:none;">Lido Pimienta</a> · Nada</cite>
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1301,8 +1320,8 @@
         Los Rastros de Júpiter. Space Is The Place. El árbol de Júpiter (Lagerstroemia indica) en el jardín de Parroquia 13. El planeta Júpiter como brújula. La música como nave.
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1334,8 +1353,8 @@
       <div class="caption">First Blood · David Morrell · Fawcett Crest</div>
       <img src="https://live.staticflickr.com/65535/55159959368_01ba0b930e_h.jpg" alt="First Blood · David Morrell" class="img-full" style="margin:1rem 0;">
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1367,8 +1386,8 @@
         <cite>— <a href="https://www.massiveattack.co.uk/" target="_blank" style="color:inherit; text-decoration:none;">Massive Attack</a> · Safe From Harm · 1991</cite>
       </div>
       <div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-        <span style="font-family:'Courier Prime',monospace; font-size:0.72rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
-        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.85rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+        <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; letter-spacing:0.15em; color:#888; font-style:italic;">Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
       </div>
       <div class="comments">
         <div class="comments-label">COMENTARIOS</div>
@@ -1397,10 +1416,10 @@
 <div style="background:var(--black); border-top:1px solid #1a1a1a; padding:0.5rem clamp(1rem,3vw,2rem);">
   <table style="width:100%; border-collapse:collapse;">
     <tr>
-      <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--white); white-space:nowrap;">
+      <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--white);">
         BELTZA RECORDS <span style="color:var(--muted);">·</span> DONOSTIA <span style="color:var(--muted);">_</span> DONEZTEBE
       </td>
-      <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right; white-space:nowrap;">
+      <td style="font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif; font-size:clamp(0.95rem,2vw,1.3rem); letter-spacing:0.15em; color:var(--amber); text-align:right;">
         <a href="https://beltzaexperience.github.io/Manifiesto-Beltza/" target="_blank" style="color:var(--amber);text-decoration:none;">MANIFIESTO</a> ·
         <a href="http://dubbeat.beltzarecords.com/" target="_blank" style="color:var(--amber);text-decoration:none;">DUB²BEAT</a> ·
         <a href="https://beltzaexperience.github.io/UR-SAPIENS/" target="_blank" style="color:var(--amber);text-decoration:none;"><span style="color:#b01a1a;">UR</span>-SAPIENS</a> ·
@@ -1449,7 +1468,14 @@
 
   // SIDEBAR TOGGLE
   function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    sidebar.classList.toggle('open');
+    overlay.style.display = sidebar.classList.contains('open') ? 'block' : 'none';
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').style.display = 'none';
   }
 
   // COMENTARIOS — envío AJAX con Formspree
