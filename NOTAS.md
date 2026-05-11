@@ -74,18 +74,16 @@ Normas absolutas
 UR en rojo
 Solo las letras UR van en rojo. Siempre. Sin excepciones.
 
-Ejemplos:
+Ejemplos
+cultura.
 
-cult<span style="color:#b01a1a;">ur</span>a
+UR-SAPIENS.
 
-UR-SAPIENS: <span style="color:#b01a1a;">UR</span>-SAPIENS
+FURTHER.
 
-FURTHER: F<span style="color:#b01a1a;">UR</span>THER
+NATURA.
 
-NATURA: NAT<span style="color:#b01a1a;">UR</span>A
-
-Reglas:
-
+Reglas
 La palabra completa sigue en negro o crema según el contexto.
 
 Solo las dos letras ur / UR llevan el span rojo.
@@ -96,6 +94,15 @@ Antes de publicar, revisar todas las ocurrencias de ur en el texto visible y ver
 
 En .block-tag, cualquier palabra con UR debe ir con white-space:nowrap para evitar saltos raros.
 
+Solo UR literal
+Solo se marca UR cuando la secuencia literal sea UR.
+
+No convertir RU en UR.
+
+No alterar el orden de las letras.
+
+No sobrecorregir palabras que no contengan la secuencia real.
+
 Texto blanco / crema
 El texto var(--white) / #f2ede6 solo debe aparecer sobre fondo negro.
 
@@ -104,8 +111,7 @@ Nunca texto blanco sobre fondo crema.
 En .block-white, todo <em> dentro de .body-text debe revisarse para que no herede el blanco por accidente.
 
 Olivettis
-Patrón correcto:
-
+Patrón correcto
 xml
 <div class="olivetti" style="padding-top:1.2rem;">
   <span style="position:absolute; top:-0.6rem; left:1rem; background:var(--black);
@@ -113,8 +119,7 @@ xml
     text-transform:uppercase; font-family:'Courier Prime',monospace;">LABEL</span>
   ...contenido normal...
 </div>
-Reglas:
-
+Reglas
 La caja hereda el estilo crema de .block-white .olivetti.
 
 Solo el label va en blanco sobre negro.
@@ -256,6 +261,8 @@ Guardar aquí las decisiones importantes si afectan al método general.
 Lista de control — antes de publicar
 ¿Están marcados todos los UR correctamente?
 
+¿Solo se marca UR cuando la secuencia literal sea UR?
+
 ¿No hay texto blanco sobre fondo crema?
 
 ¿El data-secciones es correcto?
@@ -326,3 +333,4 @@ Criterio editorial
 La libertad creativa está permitida, pero dentro de una ley clara. Si una propuesta mejora la claridad, se acepta. Si solo añade ruido, se rechaza. Si un cambio altera la identidad del proyecto, debe considerarse con especial cuidado.
 
 Magic Bus debe sentirse siempre como una publicación viva, pero nunca inestable. La ley aquí no limita: sostiene. Consistencia de tanque, ligereza de dardo, memoria larga y cambio consciente.
+
