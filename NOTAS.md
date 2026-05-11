@@ -321,6 +321,68 @@ Fecha	Decisión
 Fecha	Decisión
 Mayo 2026	Nº1 cerrado con 13 artículos.
 Mayo 2026	Norma UR: solo las letras UR en rojo, siempre.
++
+NOTAS.md — Magic Bus Siglo XXI y ½
+Beltza Experience · Doneztebe · Desde mayo 2026
+Propósito
+Define las reglas de trabajo, edición y mantenimiento del proyecto. Su objetivo es preservar el orden, la coherencia editorial y la compatibilidad técnica del sitio.
+Principios generales
+
+Primero va la estructura. Después el contenido. Después los estilos. Después los scripts.
+Nada debe romper lo que ya funciona.
+
+Identidad del proyecto
+Magic Bus es un fanzine digital, archivo cultural y pieza editorial con voz propia. Tono intenso, culto, callejero y poético. Jerarquía visual clara. Coherencia entre texto, diseño y navegación.
+Paleta y tipografía
+
+--black: #0a0a0a · --white: #f2ede6 · --red: #b01a1a · --amber: #c8922a · --muted: #666
+Bebas Neue / Courier Prime / Playfair Display
+
+Estructura fija
+Cabecera → Ignición → Marquee → Sidebar → Feed → Comentarios → Footer
+
+Norma absoluta: UR en rojo
+Solo ur/UR lleva el span rojo. La palabra entera en negro. Sin excepciones.
+CON UR: cultura, escritura, Europa, muro/muros, duró, estructuran, oscuridad, durante, futuro, literatura, Further, usurpación, bisturí, Liguria, urbano, capturó, desnaturalizada…
+SIN UR: ruta (r-u-t-a) · profunda · fueran · recuperación · fuerzas · Secundus · Strummer · construir · brutal
+Norma absoluta: texto blanco/crema
+#f2ede6 solo sobre negro. Nunca sobre crema. Todo <em> en .body-text necesita color:#1a1a1a.
+Norma absoluta: separadores y rayas
+
+border-bottom rojo solo lo aplica el CSS en .block-tag. Nunca manual en subtítulos.
+Separadores internos: class="sep-line" con opacity:0.4.
+No usar sep-red si el resto del fanzine no lo tiene.
+Entre artículos: <div style="height:2rem; background:#0a0a0a;">.
+Títulos en Bebas Neue siempre en redonda. Nunca cursiva.
+
+Norma absoluta: marquee
+Un único id="marquee-principal". El JS lo gestiona. Nunca insertar un segundo.
+Norma absoluta: olivettis
+Caja crema + label span blanco/negro + <br> tras el span. Nunca data-label + ::before en block-white.
+Norma absoluta: fotos y créditos
+Sin links a Flickr. Sin créditos a Beltza sin permiso. Pies asépticos. Baja resolución: 75% centrado.
+Norma absoluta: vídeos
+Nunca <iframe>. Siempre thumbnail img.youtube.com/vi/[ID]/maxresdefault.jpg + play button rojo.
+Horror vacui
+gap:3px, grids asimétricos, sin espacios vacíos. Referencia: Free Huey y 13 Rituales.
+Reglas de edición
+No improvisar. No duplicar. No tocar IDs sin revisar dependencias. Si hay duda, preguntar antes de actuar. Nunca regex DOTALL sobre bloques grandes.
+
+Lista de control antes de publicar
+
+¿UR marcados correctamente y solo donde toca?
+¿No hay blanco sobre crema?
+¿No hay border-bottom rojo manual?
+¿Solo un marquee-principal?
+¿data-secciones correcto?
+¿Firma de número correcta?
+¿Fotos con onerror?
+¿_subject en formulario?
+¿Ortografía revisada?
+¿Jerarquía e identidad intactas?
+
+
+Consistencia de tanque, ligereza de dardo, memoria larga y cambio consciente.
 Mayo 2026	Norma texto blanco/crema establecida.
 Mayo 2026	Norma olivettis: label blanco/negro, caja crema intacta.
 Mayo 2026	Norma fotos: sin links Flickr, sin créditos sin permiso.
