@@ -1740,6 +1740,10 @@ function filtrarSeccion(seccion) {
   actualizar();
 })();
 </script>
+<div style="background:var(--black); padding:0.4rem clamp(1rem,3vw,2rem); text-align:center;">
+  <p style="font-size:0.8rem; letter-spacing:0.15em; color:var(--muted);">visitas: <span id="gc-counter"></span></p>
+  <script>fetch('https://magic-bus-beltza.goatcounter.com/counter//.json').then(r=>r.json()).then(d=>{document.getElementById('gc-counter').textContent=d.count})</script>
+</div>
 <script data-goatcounter="https://magic-bus-beltza.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
