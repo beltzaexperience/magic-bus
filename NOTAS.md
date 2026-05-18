@@ -1,366 +1,175 @@
-# NOTAS.md — Magic Bus Siglo XXI y ½
-## Beltza Experience · Doneztebe · Desde mayo 2026
+# MAGIC BUS — INSTRUCCIONES PARA CLAUDE
+### Leer antes de tocar cualquier cosa · Beltza Experience · Doneztebe · 2026
 
 ---
 
-## Propósito
+## QUÉ ES ESTO
 
-Este archivo define las reglas de trabajo, edición y mantenimiento del proyecto Magic Bus · Siglo XXI y ½. Su objetivo es preservar el orden, la coherencia editorial y la compatibilidad técnica del sitio.
-
----
-
-## Principios generales
-
-- Primero va la estructura.
-- Después va el contenido.
-- Después van los estilos.
-- Después van los scripts.
-- Nada debe romper lo que ya funciona.
+Fanzine digital cultural. Un archivo HTML con CSS inlinado. Voz editorial fuerte.
+No es un blog. No se improvisa. No se añade nada que no mejore el conjunto.
 
 ---
 
-## Identidad del proyecto
+## PALETA Y TIPOGRAFÍA — NO SALIRSE
 
-Magic Bus no es una página genérica. Es un fanzine digital, archivo cultural y pieza editorial con voz propia. Debe conservar:
+```
+--black:  #0a0a0a   fondo principal
+--white:  #f2ede6   crema · SOLO sobre fondo negro, nunca sobre crema
+--red:    #b01a1a   acentos · UR · títulos
+--amber:  #c8922a   citas · bylines · links
+--muted:  #666      captions · secundario
 
-- Tono intenso, culto, callejero y poético.
-- Jerarquía visual clara.
-- Personalidad fuerte sin perder legibilidad.
-- Coherencia entre texto, diseño y navegación.
-
-**Qué es:** fanzine literario-cultural de largo aliento, con voz propia y criterio editorial claro.  
-**Qué no es:** blog, newsletter, agregador de contenidos ni publicación de autor sin rigor.
-
----
-
-## Paleta y tipografía
-
-- `--black: #0a0a0a` — fondo principal
-- `--white: #f2ede6` — crema · texto sobre negro
-- `--red: #b01a1a` — rojo · acentos, UR, títulos de sección
-- `--amber: #c8922a` — ámbar · citas, bylines, links
-- `--muted: #666` — gris · captions, texto secundario
-
-Tipografías:
-- **Bebas Neue** — titulares, etiquetas, navegación
-- **Courier Prime** — cuerpo de texto, captions, olivettis
-- **Playfair Display** — pullquotes
-
----
-
-## Estructura fija
-
-La arquitectura base del sitio debe mantenerse siempre en este orden:
-
-1. Cabecera
-2. Bloque de ignición
-3. Marquee principal
-4. Sidebar
-5. Feed de artículos
-6. Comentarios
-7. Footer
-
-Cualquier cambio estructural importante debe respetar esta secuencia o justificar claramente su modificación.
-
----
-
-## Norma absoluta: UR en rojo
-
-**Solo las letras `UR` van en rojo. Siempre. Sin excepciones.**
-
-```html
-cult<span style="color:#b01a1a;">ur</span>a
+Bebas Neue    → titulares, etiquetas, marquees
+Courier Prime → cuerpo, captions, olivettis
+Playfair      → pullquotes
 ```
 
-- La palabra completa sigue en negro o crema según el contexto.
-- Solo las dos letras `ur` / `UR` llevan el span rojo.
-- Esto aplica a toda palabra, nombre propio y contexto visible.
-- Antes de publicar, revisar todas las ocurrencias de `ur` en el texto visible.
-- En `.block-tag` (display:flex): envolver la palabra completa en `white-space:nowrap`.
-
-**Solo se marca UR cuando la secuencia literal sea U seguida de R.**  
-No convertir RU en UR. No alterar el orden de las letras. No sobrecorregir.
-
-### Palabras CON UR — marcar siempre
-`cultura`, `escritura`, `locura`, `futuro`, `naturaleza`, `estructura`, `Further`, `durante`, `rural`, `furor`, `Europa`, `europea`, `neuropatía`, `usurpación`, `contracultura`, `literatura`, `muro`, `muros`, `duró`, `estructuran`, `oscuridad`, `curvas`, `discurso`, `lectura`, `desnaturalizada`, `bisturí`, `Liguria`, `urbano`, `Surgió`, `capturó`
-
-### Palabras SIN UR — NO marcar (casos problemáticos frecuentes)
-| Palabra | Por qué no | |
-|---|---|---|
-| `ruta` | r-u-t-a: la R va ANTES de la U | ✗ |
-| `profunda` | pro-fun-da: no hay secuencia u-r | ✗ |
-| `fueran` | fu-e-ran: no hay secuencia u-r | ✗ |
-| `recuperación` | re-cu-pe-ra-ción: no hay u-r | ✗ |
-| `fuerzas` | fu-er-zas: e-r, no u-r | ✗ |
-| `Secundus` | se-cun-dus: no hay u-r | ✗ |
-| `Strummer` | Str-u-mm-er: u no va seguida de r | ✗ |
-| `institución` | no contiene u-r | ✗ |
-| `construir` | cons-tru-ir: tr-u, no u-r | ✗ |
-| `brutal` | bru-tal: r-u, no u-r | ✗ |
-
 ---
 
-## Norma absoluta: texto blanco/crema
+## ⚠️ LOS DOS MARQUEES — NORMA IRROMPIBLE
 
-- Texto `var(--white)` / `#f2ede6` **solo** sobre fondo negro.
-- **Nunca** texto blanco sobre fondo crema — invisible.
-- En `block-white`, todo `<em>` dentro de `.body-text` hereda `color:var(--white)` del CSS global → siempre añadir `style="color:#1a1a1a; font-style:italic;"`.
+### 1 · `id="marquee-principal"` · banda roja · MÓVIL
+- Vive después del artículo permanente más reciente.
+- El JS lo recoloca automáticamente al filtrar o cambiar orden.
+- **Un único `id="marquee-principal"` en todo el DOM. Nunca duplicar.**
+- No moverlo manualmente. No insertar un segundo.
 
----
+### 2 · `id="marquee-colofon-primus"` · banda negra · FIJO · PARÁMETROS DEFINITIVOS
+- Separa el Nº1 del Nº2 del fanzine. Es el colofón del Primus.
+- Vive entre `hacha-vasca` (último artículo Nº1) y `situacionistas` (primer Nº2).
+- **NUNCA SE MUEVE. Ni el JS ni tú lo tocáis.**
+- El JS no lo captura: no tiene `id="marquee-principal"` y el `querySelector` genérico fue eliminado.
+- Los artículos nuevos del Nº2 van ANTES de él en el DOM (más arriba = más recientes).
 
-## Norma absoluta: separadores y rayas
-
-**En todos los posts o en ninguno. La consistencia visual es ley.**
-
-- Las líneas `border-bottom:3px solid #b01a1a` **solo** las aplica el CSS en `.block-tag`. Nunca añadirlas manualmente en subtítulos ni en ningún div de texto.
-- Los separadores internos entre secciones usan `class="sep-line"` con `opacity:0.4` — sutiles, no protagonistas.
-- **No usar** `sep-red` (`border-top:2px solid var(--red)`) dentro de artículos si el resto del fanzine no lo tiene.
-- Entre artículos: separación negra `<div style="height:2rem; background:#0a0a0a;">` — igual que el resto del fanzine.
-- Los títulos en Bebas Neue van siempre en redonda. **Nunca cursiva en títulos**, aunque el título sea de una obra.
-
----
-
-## Norma absoluta: marquee
-
-- **Un único marquee** con `id="marquee-principal"` en todo el DOM.
-- El JS del site lo gestiona y recoloca automáticamente tras el artículo más reciente.
-- **Nunca insertar un segundo marquee manualmente** al añadir artículos — solo habrá duplicado y el JS fallará.
-- El marquee original vive en el `index.html` y los nuevos artículos van antes de él en el feed.
-
----
-
-## Norma absoluta: olivettis
-
-Patrón correcto (igual que posts del Nº1):
-
-```html
-<div class="olivetti" style="padding-top:1.2rem;">
-  <span style="position:absolute; top:-0.6rem; left:1rem; background:var(--black);
-    padding:0 0.5rem; font-size:0.72rem; letter-spacing:0.3em; color:#f2ede6;
-    text-transform:uppercase; font-family:'Courier Prime',monospace;">LABEL</span>
-  <br>
-  ...contenido normal...
-</div>
+**Parámetros — NO TOCAR SIN ORDEN EXPLÍCITA:**
+```
+Espaciadores negros:  height: 1.2rem  (arriba y abajo)
+Franja:               padding: 0
+Font-size:            1.6rem
+Line-height:          1
+Letter-spacing:       0.3em
+Color texto:          #f2ede6
+Fondo:                #0a0a0a
+Velocidad:            360s  (≈ 3,75 chars/seg · ritmo sumario de prensa)
+Caracteres por vuelta: 1.349
 ```
 
-- La caja hereda el estilo crema de `.block-white .olivetti`.
-- **Solo el label** va en blanco sobre negro.
-- Añadir `<br>` tras el span del label para evitar que el texto quede pegado.
-- No tocar el fondo de la caja. No usar `data-label` + CSS `::before` en `block-white`.
-
----
-
-## Norma absoluta: fotos y créditos
-
-- **Nunca enlazar a Flickr.**
-- **Nunca añadir crédito a Beltza Records, Beltza Experience ni Luis Beltza** sin permiso explícito.
-- Pies de foto asépticos: solo el sujeto y la fecha si procede.
-- Fotos de baja resolución: máximo **75% de ancho**, `margin:0 auto`.
-- `alt` aséptico: solo descripción del contenido.
-- Fotos siempre a full o centradas. Nunca flotando con espacios vacíos innecesarios.
-
----
-
-## Norma absoluta: vídeos
-
-**Nunca `<iframe>`.** Siempre thumbnail con play button rojo:
-
+**Código fuente exacto del wrapper:**
 ```html
-<a href="https://www.youtube.com/watch?v=[ID]" target="_blank" style="display:block; position:relative;">
-  <img src="https://img.youtube.com/vi/[ID]/maxresdefault.jpg"
-       style="width:100%; display:block; filter:contrast(1.1);">
-  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-       width:80px; height:80px; background:rgba(176,26,26,0.9); border-radius:50%;
-       display:flex; align-items:center; justify-content:center;">
-    <div style="width:0; height:0; border-top:20px solid transparent;
-         border-bottom:20px solid transparent; border-left:35px solid white; margin-left:8px;"></div>
+<div id="marquee-colofon-primus" style="background:#0a0a0a;">
+  <div style="height:1.2rem;"></div>
+  <div style="overflow:hidden; white-space:nowrap; width:100%; padding:0;">
+    <div style="display:inline-block; animation:marquee 360s linear infinite;
+      font-family:'Bebas Neue',sans-serif; font-size:1.6rem; line-height:1;
+      letter-spacing:0.3em; color:#f2ede6; will-change:transform;">
+      [texto × 2 para loop continuo]
+    </div>
   </div>
-</a>
-```
-
----
-
-## Norma: horror vacui en fotos
-
-- `gap:3px` entre imágenes en grid.
-- Grids asimétricos: `3fr 2fr`, `2fr 1fr`, combinar portrait y landscape.
-- Nunca espacios vacíos innecesarios.
-- Referencia: Free Huey (Nº1) y 13 Rituales.
-
----
-
-## Norma: firma de autoría
-
-Luis Beltza firma **solo** cuando él lo pide explícitamente.
-
----
-
-## Estructura de artículo
-
-```html
-<article id="[id]" data-secciones="[sec1] [sec2]" class="block block-white">
-  <div class="block-tag">...</div>
-  <h2 class="headline-xl">...</h2>
-  <!-- cuerpo: body-text · pullquote · fotos · olivetti -->
-  <!-- firma de número -->
-  <!-- comments -->
-</article>
-```
-
-**Firma de número:**
-```html
-<div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2); padding-top:0.8rem; text-align:right;">
-  <span style="font-family:'Courier Prime',monospace; font-size:0.85rem; color:#888; font-style:italic;">
-    Autobus Scholasticus Magicus Saeculo XXI et Dimidio, [Primus / Secundus / Tertius...]
-  </span><br>
-  <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.2em; color:var(--red);">
-    Magic Bus Siglo XXI y ½ Nº[n] · Doneztebe · [Mes] [año]
-  </span>
+  <div style="height:1.2rem;"></div>
 </div>
 ```
 
----
-
-## Reglas de edición
-
-- No improvisar estructura nueva si ya existe una solución estable.
-- No duplicar bloques, funciones o patrones sin motivo.
-- No alterar IDs, clases, anchors ni nombres funcionales sin revisar dependencias.
-- No convertir un artículo en una suma de `div` sin orden.
-- No añadir adornos si no aportan lectura, ritmo o claridad.
-- Si algo se repite mucho, debe convertirse en componente o patrón.
-- **Si hay duda, preguntar antes de actuar.**
-- **Nunca usar regex con DOTALL sobre bloques grandes** — riesgo de eliminar contenido entre marcadores.
-
----
-
-## Reglas de HTML
-
-- Usar HTML semántico siempre que sea posible.
-- Mantener jerarquía correcta de encabezados.
-- Evitar anidar contenedores innecesarios.
-- No mezclar maquetación y contenido sin necesidad.
-- Preferir componentes reutilizables frente a bloques repetidos.
-- Revisar que enlaces, formularios y botones sigan funcionando tras cualquier cambio.
+### Esquema visual del feed (orden DOM, arriba = más reciente)
+```
+[artículo más reciente Nº2]
+[...]
+[marquee-principal · rojo · se mueve con JS]
+[...]
+[situacionistas · artículo Nº2]
+────────────────────────────────────────────
+[marquee-colofon-primus · negro · INAMOVIBLE]
+────────────────────────────────────────────
+[hacha-vasca · último artículo Nº1]
+[...]
+[safe-from-harm · primer artículo Nº1 publicado]
+```
 
 ---
 
-## Reglas de CSS
+## NORMA UR EN ROJO
 
-- Mantener la paleta visual del proyecto.
-- No introducir colores fuera de la identidad salvo excepción justificada.
-- Respetar la tipografía principal y sus usos.
-- Usar clases compartidas para patrones repetidos.
-- Evitar estilos inline salvo casos concretos o puntuales.
-- Toda adaptación responsive debe conservar jerarquía y legibilidad.
+Cada fonema "ur" visible en el texto lleva: `<span style="color:#b01a1a;">ur</span>`
+La palabra circundante mantiene su color de contexto.
 
----
+**SÍ**: cult**ur**a · ins**ur**rección · dist**ur**bio · loc**ur**a · D**ur**r**ut**i · h**ur**ón · E**ur**opa · F**ur**ther · Furt**hur** · nat**ur**a · F**ur**opa...
 
-## Reglas de JavaScript
+**NO**: Ag**ui**rre (ir) · inf**o**rtunio (u sola) · br**u**tal (ru) · c**ue**rpos (ue) · f**ue**ros (ue)
 
-- El script solo debe servir a funciones reales del sitio.
-- No duplicar lógica existente.
-- No romper buscador, filtros, ordenación, sidebar, formularios ni contadores.
-- Si una función depende del DOM, comprobar que los selectores siguen existiendo.
-- Si se modifica una sección visible dinámicamente, revisar su comportamiento en móvil y escritorio.
+En `.block-tag` con UR: añadir `white-space:nowrap` al span para evitar saltos.
 
 ---
 
-## Flujo de trabajo
-
-1. Leer la estructura existente antes de tocar nada.
-2. Identificar qué es fijo y qué es editable.
-3. Hacer cambios pequeños y comprobables.
-4. Revisar compatibilidad con buscador, filtros y navegación.
-5. Validar que el resultado siga siendo legible y coherente.
-6. Guardar aquí las decisiones importantes si afectan al método general.
-
----
-
-## Lista de control — antes de publicar
-
-- [ ] ¿Están marcados todos los UR correctamente?
-- [ ] ¿Solo se marca UR cuando la secuencia literal sea U seguida de R?
-- [ ] ¿No hay texto blanco sobre fondo crema?
-- [ ] ¿No hay `border-bottom` rojo añadido manualmente en subtítulos?
-- [ ] ¿Solo hay un `id="marquee-principal"` en el DOM?
-- [ ] ¿El `data-secciones` es correcto?
-- [ ] ¿La firma de número es correcta (Primus/Secundus...)?
-- [ ] ¿Las fotos tienen `onerror`?
-- [ ] ¿El formulario de comentarios tiene `_subject` correcto?
-- [ ] ¿Ortografía revisada? (tildes, concordancias, erratas)
-- [ ] ¿Se entiende a primera vista?
-- [ ] ¿La jerarquía visual sigue clara?
-- [ ] ¿La identidad del proyecto permanece intacta?
-- [ ] ¿La navegación continúa funcionando?
-- [ ] ¿El cambio mejora el conjunto?
-- [ ] ¿Se puede mantener sin caos en el futuro?
-
----
-
-## Secciones y artículos
-
-| Sección ID | Artículos |
-|---|---|
-| `historia` | hacha-vasca · balleneros · jupiter |
-| `musica` | lkj · karen · satan · cosmos · safe-from-harm |
-| `politica` | lkj · jupiter · satan · free-huey |
-| `poesia` | lkj · safe-from-harm |
-| `black-power` | free-huey |
-| `futbol` | jupiter |
-| `comics` | cosmos |
-| `digitalismo` | digitalismo |
-| `cosmos` | cosmos |
-| `cine` | archivo |
-| `literatura` | furthur · situacionistas |
-| `euskal-herria` | hacha-vasca · balleneros |
-| `angustia` | safe-from-harm · digitalismo · furthur |
-
----
-
-## Números del fanzine
+## NÚMEROS DEL FANZINE
 
 | Nº | Estado | Artículos |
 |---|---|---|
-| Nº1 | CERRADO | 13 artículos |
-| Nº2 | EN CURSO | furthur · situacionistas · ... (13 en total) |
+| **Nº1** | CERRADO | 13 artículos · hacha-vasca → safe-from-harm |
+| **Nº2** | En curso | situacionistas · furthur · + 11 pendientes |
+
+Cada número = 13 artículos exactos.
+
+### Artículos Nº1 (cerrado, no tocar)
+`hacha-vasca` · `lkj` · `balleneros` · `jupiter` · `digitalismo` · `karen` · `satan` · `politica` · `free-huey` · `musica` · `cosmos` · `archivo` · `safe-from-harm`
+
+### Artículos Nº2 (en curso)
+`situacionistas` · `furthur` · (11 pendientes)
 
 ---
 
-## Pendiente
+## FIRMA DE NÚMERO
 
-- [ ] Añadir `data-secciones` a todos los artículos del Nº1
-- [ ] JS filtro por sección con recolocación del marquee
-- [ ] Tres modos: DIARIO · CRONOLÓGICO · POR NÚMERO
-- [ ] Paginación visible tipo fanzine
-- [ ] Revisar móvil con filtro activo
+Va antes del `div.comments` en cada artículo. Ejemplo para Nº1:
 
----
+```html
+<div style="margin-top:2rem; border-top:1px solid rgba(176,26,26,0.2);
+  padding-top:0.8rem; text-align:right;">
+  <span style="font-family:'Courier Prime',monospace; font-size:0.85rem;
+    letter-spacing:0.15em; color:#888; font-style:italic;">
+    Autobus Scholasticus Magicus Saeculo XXI et Dimidio, Primus</span><br>
+  <span style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem;
+    letter-spacing:0.2em; color:var(--red);">
+    Magic Bus Siglo XXI y ½ Nº1 · Doneztebe · Mayo 2026</span>
+</div>
+```
 
-## Registro de decisiones
-
-| Fecha | Decisión |
-|---|---|
-| Mayo 2026 | Nº1 cerrado con 13 artículos |
-| Mayo 2026 | Norma UR: solo las letras UR en rojo, siempre |
-| Mayo 2026 | Norma texto blanco/crema establecida |
-| Mayo 2026 | Norma olivettis: label blanco/negro, `<br>` tras span, caja crema intacta |
-| Mayo 2026 | Norma fotos: sin links Flickr, sin créditos sin permiso |
-| Mayo 2026 | Norma vídeos: nunca iframe, siempre thumbnail + play button |
-| Mayo 2026 | Horror vacui: gap 3px, grids asimétricos |
-| Mayo 2026 | Norma separadores: no `border-bottom` rojo manual en subtítulos |
-| Mayo 2026 | Norma marquee: uno solo, el JS lo gestiona, nunca duplicar |
-| Mayo 2026 | Norma entre artículos: separación negra `#0a0a0a` |
-| Mayo 2026 | Títulos en Bebas Neue siempre en redonda, nunca cursiva |
-| Mayo 2026 | Strummer autor de Rock the Kasbah, no Topper Headon |
-| Mayo 2026 | Furthur · Situacionistas = artículos 1 y 2 del Nº2 |
+Nombres latinos: Primus · Secundus · Tertius · Quartus · Quintus...
 
 ---
 
-## Criterio editorial
+## SECCIONES (data-secciones en cada article)
 
-La libertad creativa está permitida, pero dentro de una ley clara. Si una propuesta mejora la claridad, se acepta. Si solo añade ruido, se rechaza. Si un cambio altera la identidad del proyecto, debe considerarse con especial cuidado.
+`angustia` · `black-power` · `cine` · `comics` · `cosmos` · `digitalismo` · `euskal-herria` · `futbol` · `historia` · `literatura` · `musica` · `poesia` · `politica`
 
 ---
 
-*Magic Bus debe sentirse siempre como una publicación viva, pero nunca inestable. La ley aquí no limita: sostiene. Consistencia de tanque, ligereza de dardo, memoria larga y cambio consciente.*
+## POST EFÍMERO
+
+`id="edwyn-24h"` — expiró el 2 mayo 2026. No cuenta como artículo permanente.
+El marquee-principal se coloca después del primer artículo **permanente**, no del efímero.
+
+---
+
+## NORMAS RÁPIDAS
+
+- **Texto blanco**: SOLO sobre fondo negro. Nunca sobre crema.
+- **Fotos**: sin `src` de Flickr directamente. Sin créditos a Beltza sin permiso. `alt` descriptivo y aséptico. `onerror="this.style.display='none'"` en imágenes críticas.
+- **Vídeos**: nunca `<iframe>`. Siempre thumbnail + play button rojo.
+- **Autoría**: Luis Beltza firma solo cuando él lo pide. Textos propios: Ponzoña Digital · Safe From Harm · Inner Visions · Electro Cumbia · Free Huey.
+- **Horror vacui**: ningún espacio en blanco injustificado. Gap 3px entre imágenes. Grids asimétricos.
+- **Olivettis**: label en `color:#f2ede6; background:var(--black)`. La caja crema no se toca.
+
+---
+
+## ANTES DE ENTREGAR CUALQUIER CAMBIO
+
+1. ¿Hay un segundo `marquee-principal` en el DOM? → Error grave.
+2. ¿Se movió `marquee-colofon-primus`? → Error grave.
+3. ¿Texto blanco sobre fondo crema? → Error.
+4. ¿Todos los UR marcados en el texto nuevo?
+5. ¿`data-secciones` correcto en artículos nuevos?
+6. ¿Firma de número correcta?
+7. ¿El JS sigue funcionando (filtro, orden, búsqueda)?
+
+---
+
+*Consistencia de tanque, ligereza de dardo, memoria larga y cambio consciente.*
